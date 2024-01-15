@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis</title>
+  <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis" />
+  
+  <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Professor Nick Lee" />
+
+
+<meta name="date" content="2024-01-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="uncertainty.html"/>
+<link rel="next" href="probability.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WBS DBA Quantitative Methods</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Orientation</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Describing the World With Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.1</b> Box Plots</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.2</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.3</b> Describing Variables and Distributions</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.4</b> Transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="assoc_rel.html"><a href="assoc_rel.html#correlations-and-associations"><i class="fa fa-check"></i><b>3.1</b> Correlations and Associations</a></li>
+<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.2</b> Regression</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="assoc_rel.html"><a href="assoc_rel.html#figure-5.1-page-124-linear-regression-of-sons-on-fathers-heights"><i class="fa fa-check"></i><b>3.2.1</b> Figure 5.1 (page 124) Linear regression of sons’ on fathers’ heights</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.3</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Visualizing Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Understanging Uncertainty</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides"><i class="fa fa-check"></i><b>4.1</b> Back to slides…</a></li>
+<li class="chapter" data-level="4.2" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides-1"><i class="fa fa-check"></i><b>4.2</b> Back to slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-our-previous-samples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping our Previous Samples</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#so-lets-go-back-to-the-slides.."><i class="fa fa-check"></i><b>5.1.1</b> so let’s go back to the slides…..</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides"><i class="fa fa-check"></i><b>5.2.2</b> Back to the slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides-1"><i class="fa fa-check"></i><b>5.3.1</b> Back to the slides…</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
+<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>7.1</b> The Law of Large Numbers</a></li>
+<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.2</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>7.3</b> Rate of Change in Football Goals per Season</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>8</b> ANOVA and Issues with Significance</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ANOVA.html"><a href="ANOVA.html#rate-of-change-in-football-goals-per-season---bonferroni-correction"><i class="fa fa-check"></i><b>8.1</b> Rate of Change in Football Goals per Season - Bonferroni Correction?</a></li>
+<li class="chapter" data-level="8.2" data-path="ANOVA.html"><a href="ANOVA.html#statistical-power"><i class="fa fa-check"></i><b>8.2</b> Statistical Power</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>9</b> Classical Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="H-testing.html"><a href="H-testing.html#premier-league-goals-and-the-poisson-distribution-1"><i class="fa fa-check"></i><b>9.1</b> Premier League Goals and the Poisson Distribution</a></li>
+<li class="chapter" data-level="9.2" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>9.2</b> Correlation Significance Tests</a></li>
+<li class="chapter" data-level="9.3" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>9.3</b> Regression Significance Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WBS DBA: Introduction to Quantitative Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bootstrap" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Introduction to Bootstrapping<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>First, we will demonstrate the basic principle. Let’s use our last sample of 50 from the above example, first we will remind ourselves of its properties and distribution:</p>
+<pre><code>## [1] 15.07986</code></pre>
+<pre><code>## [1] 14.53667</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p>Ok lovely. Now, what we do is draw <em>another random sample of 50</em> from this 50, but each time we draw a data point, we <em>replace</em> it back, so we are always drawing our sample from the full 50. This is called <em>sampling with replacement</em>.</p>
+<p>In this way, the new sample can only contain values which were in the original sample, but will contain different numbers of those values, so the distribution will be different, and the statistics may also be different. Let’s do this, and take the mean and median of the sample:</p>
+<pre><code>## # A tibble: 50 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1   205  24.0     7.61         11.6 
+##  2    25  30.4    17.0          12.4 
+##  3   433   3.22    9.18         16.5 
+##  4    56  28.6     1.15         10.1 
+##  5    19  39.7    12.7           9.75
+##  6    70  22.9    24.6          16.2 
+##  7    19  39.7    12.7           9.75
+##  8   391  40.0    14.5           9.51
+##  9   343  19.9    19.1          14.5 
+## 10   483  36.1    13.8           9.73
+## # ℹ 40 more rows</code></pre>
+<pre><code>## [1] 14.14764</code></pre>
+<pre><code>## [1] 13.54231</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p>Marvellous! Now, let’s do this twice more…</p>
+<pre><code>## # A tibble: 50 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1   194  13.2     9.99         14.5 
+##  2   433   3.22    9.18         16.5 
+##  3   326  44.6    17.2           8.31
+##  4   391  40.0    14.5           9.51
+##  5   110  68.2     2.19          1.97
+##  6   427  67.5    14.6           4.70
+##  7   161  30.5     2.53          8.94
+##  8   408  50.8    20.0           7.93
+##  9   206  44.0     6.58          8.50
+## 10   391  40.0    14.5           9.51
+## # ℹ 40 more rows</code></pre>
+<pre><code>## [1] 14.79793</code></pre>
+<pre><code>## [1] 14.50702</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<pre><code>## # A tibble: 50 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1   131   64.9   10.9           3.77
+##  2    25   30.4   17.0          12.4 
+##  3    29   48.6   10.4           6.66
+##  4   468   56.2   19.2           6.51
+##  5   205   24.0    7.61         11.6 
+##  6    26   53.0   27.7           9.09
+##  7   439   63.8    9.91          3.40
+##  8    26   53.0   27.7           9.09
+##  9   205   24.0    7.61         11.6 
+## 10   446   25.3   18.1          13.2 
+## # ℹ 40 more rows</code></pre>
+<pre><code>## [1] 14.63547</code></pre>
+<pre><code>## [1] 14.81765</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p>We can build a table in the slides of these mean and median values</p>
+<p>So, this is the basic principle of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a routine to do this thousands of times.</p>
+<p><em>back to slide deck</em></p>
+<div id="bootstrapping-our-previous-samples" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Bootstrapping our Previous Samples<a href="bootstrap.html#bootstrapping-our-previous-samples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So, what we can do now, is run 1000 bootstrap replications of each of our varying-sized subsamples of the smoking data, to see what might happen:</p>
+<p>First, the 10:</p>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = sub.10, statistic = f1, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original    bias    std. error
+## t1* 15.45941 0.1713939     3.01156</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = results, type = &quot;norm&quot;)
+## 
+## Intervals : 
+## Level      Normal        
+## 95%   ( 9.39, 21.19 )  
+## Calculations and Intervals on Original Scale</code></pre>
+<p>Let’s do it for the other two subsamples of n=50, and n=200</p>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = sub.50, statistic = f1, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original     bias    std. error
+## t1* 14.53667 0.04963236     1.18755</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = results, type = &quot;norm&quot;)
+## 
+## Intervals : 
+## Level      Normal        
+## 95%   (12.16, 16.81 )  
+## Calculations and Intervals on Original Scale</code></pre>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = sub.200, statistic = f1, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original      bias    std. error
+## t1* 14.89638 -0.02360832   0.5908945</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = results, type = &quot;norm&quot;)
+## 
+## Intervals : 
+## Level      Normal        
+## 95%   (13.76, 16.08 )  
+## Calculations and Intervals on Original Scale</code></pre>
+<p>And, finally, let’s bootstrap our original full sample of 498:</p>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = Heart, statistic = f1, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original      bias    std. error
+## t1* 15.43503 0.001437866    0.359051</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = results, type = &quot;norm&quot;)
+## 
+## Intervals : 
+## Level      Normal        
+## 95%   (14.73, 16.14 )  
+## Calculations and Intervals on Original Scale</code></pre>
+<p>This is a very nice set of results, which can tell us many interesting things…</p>
+<div id="so-lets-go-back-to-the-slides.." class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> so let’s go back to the slides…..<a href="bootstrap.html#so-lets-go-back-to-the-slides.." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="bootstrapping-other-stuff" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Bootstrapping Other Stuff…<a href="bootstrap.html#bootstrapping-other-stuff" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have so far only bootstrapped the mean. However, the basic principle can be applied to virtually any statistical estimate. So, we can revisit some of our prior models, and use the bootstrap to quantify the uncertainty in the estimates we previously accepted without really questioning them. And, we can introduce a new analysis tool to explore the difference between groups, and use the bootstrap with that too.</p>
+<div id="correlations" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Correlations<a href="bootstrap.html#correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s revisit our recent correlation analysis of Happiness and GDP per capita.</p>
+<pre><code>## # A tibble: 6 × 4
+##   Country        Happiness GDPpc      Pop
+##   &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Afghanistan         2.4   1971 38972236
+## 2 Albania             5.2  13192  2866850
+## 3 Algeria             5.12 10735 43451668
+## 4 American Samoa     NA       NA    46216
+## 5 Andorra            NA       NA    77723
+## 6 Angola             NA     6110 33428490</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-81">Table 5.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">Happy</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">249</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="19%" />
+<col width="5%" />
+<col width="5%" />
+<col width="8%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Country</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">32</td>
+<td align="right">0</td>
+<td align="right">249</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="8%" />
+<col width="11%" />
+<col width="9%" />
+<col width="10%" />
+<col width="4%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="10%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Happiness</td>
+<td align="right">96</td>
+<td align="right">0.61</td>
+<td align="right">5.49</td>
+<td align="right">1.12</td>
+<td align="right">2.4</td>
+<td align="right">4.67</td>
+<td align="right">5.53</td>
+<td align="right">6.26</td>
+<td align="right">7.820000e+00</td>
+<td align="left">▁▅▇▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">GDPpc</td>
+<td align="right">52</td>
+<td align="right">0.79</td>
+<td align="right">20463.88</td>
+<td align="right">20717.34</td>
+<td align="right">731.0</td>
+<td align="right">4917.00</td>
+<td align="right">12655.00</td>
+<td align="right">30100.00</td>
+<td align="right">1.125570e+05</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Pop</td>
+<td align="right">7</td>
+<td align="right">0.97</td>
+<td align="right">59178643.60</td>
+<td align="right">331869505.09</td>
+<td align="right">809.0</td>
+<td align="right">415292.50</td>
+<td align="right">5596196.00</td>
+<td align="right">24205600.00</td>
+<td align="right">4.663087e+09</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>If we run the same analysis as last time, we’ll get the same results: Correlation R = 0.75</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p>Now, let’s take uncertainty into account, by bootstrapping that correlation and creating some confidence intervals, using a cool package called <em>Infer</em>, which makes this almost frighteningly easy:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<pre><code>## # A tibble: 1 × 2
+##   lower_ci upper_ci
+##      &lt;dbl&gt;    &lt;dbl&gt;
+## 1    0.689    0.811</code></pre>
+<pre><code>## Response: Happiness (numeric)
+## Explanatory: GDPpc (numeric)
+## # A tibble: 1 × 1
+##    stat
+##   &lt;dbl&gt;
+## 1 0.745</code></pre>
+<p>So, you can see the correlation is 0.75 with a 95% confidence interval of 0.69 - 0.81</p>
+<p>Now, let’s extend this to the multiple regression case we have previously used, examining the relationships between smoking, biking, and heart disease.</p>
+<p>Lets load up the data if needed</p>
+<pre><code>## # A tibble: 6 × 4
+##    ...1 biking smoking heart.disease
+##   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+## 1     1  30.8    10.9          11.8 
+## 2     2  65.1     2.22          2.85
+## 3     3   1.96   17.6          17.2 
+## 4     4  44.8     2.80          6.82
+## 5     5  69.4    16.0           4.06
+## 6     6  54.4    29.3           9.55</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-85">Table 5.2: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">Heart</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">498</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="15%" />
+<col width="10%" />
+<col width="15%" />
+<col width="7%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">…1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">249.50</td>
+<td align="right">143.90</td>
+<td align="right">1.00</td>
+<td align="right">125.25</td>
+<td align="right">249.50</td>
+<td align="right">373.75</td>
+<td align="right">498.00</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">biking</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">37.79</td>
+<td align="right">21.48</td>
+<td align="right">1.12</td>
+<td align="right">20.20</td>
+<td align="right">35.82</td>
+<td align="right">57.85</td>
+<td align="right">74.91</td>
+<td align="left">▇▇▇▆▇</td>
+</tr>
+<tr class="odd">
+<td align="left">smoking</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.44</td>
+<td align="right">8.29</td>
+<td align="right">0.53</td>
+<td align="right">8.28</td>
+<td align="right">15.81</td>
+<td align="right">22.57</td>
+<td align="right">29.95</td>
+<td align="left">▆▆▇▆▆</td>
+</tr>
+<tr class="even">
+<td align="left">heart.disease</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">10.17</td>
+<td align="right">4.57</td>
+<td align="right">0.55</td>
+<td align="right">6.51</td>
+<td align="right">10.39</td>
+<td align="right">13.72</td>
+<td align="right">20.45</td>
+<td align="left">▃▇▇▇▂</td>
+</tr>
+</tbody>
+</table>
+<p>Here, we need to calculate multiple intervals as we have multiple estimates, so it’s a bit more complicated, but still fairly intuitive using Infer:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<pre><code>## # A tibble: 3 × 2
+##   term      estimate
+##   &lt;chr&gt;        &lt;dbl&gt;
+## 1 intercept   15.0  
+## 2 smoking      0.178
+## 3 biking      -0.200</code></pre>
+<pre><code>## # A tibble: 3 × 3
+##   term      lower_ci upper_ci
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+## 1 biking      -0.203   -0.197
+## 2 intercept   14.8     15.1  
+## 3 smoking      0.171    0.186</code></pre>
+</div>
+<div id="back-to-the-slides" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Back to the slides…<a href="bootstrap.html#back-to-the-slides" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="t-tests-for-means" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> T-Tests for Means<a href="bootstrap.html#t-tests-for-means" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can also use bootstrapping as an entry point to a new analysis situation, where we are comparing two groups. This could be for example in a classic experimental context; treatment and control.</p>
+<p>So, let’s load up our Ed Sheeran study data:</p>
+<pre><code>## # A tibble: 6 × 3
+##      ID GROUP ANGER
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     4
+## 2     2     2     5
+## 3     3     1     2
+## 4     4     2     3
+## 5     5     2     4
+## 6     6     1     2</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-89">Table 5.3: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">ED_IND</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">30</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="17%" />
+<col width="12%" />
+<col width="17%" />
+<col width="7%" />
+<col width="6%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="7%" />
+<col width="6%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.50</td>
+<td align="right">8.80</td>
+<td align="right">1</td>
+<td align="right">8.25</td>
+<td align="right">15.5</td>
+<td align="right">22.75</td>
+<td align="right">30</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">GROUP</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.50</td>
+<td align="right">0.51</td>
+<td align="right">1</td>
+<td align="right">1.00</td>
+<td align="right">1.5</td>
+<td align="right">2.00</td>
+<td align="right">2</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">ANGER</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.33</td>
+<td align="right">1.21</td>
+<td align="right">1</td>
+<td align="right">2.00</td>
+<td align="right">3.0</td>
+<td align="right">4.00</td>
+<td align="right">5</td>
+<td align="left">▁▇▇▆▇</td>
+</tr>
+</tbody>
+</table>
+<p>We need to tell R that GROUP is a factor variable not a numeric one:</p>
+<p>Check it worked:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-91">Table 5.4: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">ED_IND</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">30</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">factor</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="14%" />
+<col width="20%" />
+<col width="11%" />
+<col width="13%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">ordered</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">GROUP</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">FALSE</td>
+<td align="right">2</td>
+<td align="left">1: 15, 2: 15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="17%" />
+<col width="12%" />
+<col width="17%" />
+<col width="7%" />
+<col width="6%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="7%" />
+<col width="6%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.50</td>
+<td align="right">8.80</td>
+<td align="right">1</td>
+<td align="right">8.25</td>
+<td align="right">15.5</td>
+<td align="right">22.75</td>
+<td align="right">30</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">ANGER</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.33</td>
+<td align="right">1.21</td>
+<td align="right">1</td>
+<td align="right">2.00</td>
+<td align="right">3.0</td>
+<td align="right">4.00</td>
+<td align="right">5</td>
+<td align="left">▁▇▇▆▇</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s run an independent samples T-Test with bootstrapped confidence interval using Infer.</p>
+<p>We use an independent samples test, as the theory is these two groups are sampled from independent populations (those who listened to Ed Sheeran, and those who did not) and what we are doing is trying to work out whether there is any difference in anger between them…</p>
+<pre><code>## # A tibble: 2 × 2
+##   GROUP  name
+##   &lt;fct&gt; &lt;dbl&gt;
+## 1 1      2.8 
+## 2 2      3.87</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<pre><code>## Response: ANGER (numeric)
+## Explanatory: GROUP (factor)
+## # A tibble: 1 × 1
+##    stat
+##   &lt;dbl&gt;
+## 1 -2.65</code></pre>
+<pre><code>## # A tibble: 1 × 2
+##   lower_ci upper_ci
+##      &lt;dbl&gt;    &lt;dbl&gt;
+## 1    -5.49   -0.575</code></pre>
+<p>Remember: Group 1 is the control, and Group 2 listened to Ed Sheeran</p>
+<p>Cool so it seems that Group 2 displayed more anger. The Confidence interval for the t-statistic does not contain 0, so it supports the idea that there is a difference here. It is quite wide though - because of our small sample size.</p>
+<p>OK, so let’s use a different design, using a paired samples t-test.</p>
+<div id="back-to-the-slides-1" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Back to the slides…<a href="bootstrap.html#back-to-the-slides-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The same basic process is needed, but with some modifications because of the type of comparison we are doing.</p>
+<p>First, we read the data in as normal, and make sure it is treated as a data frame.</p>
+<pre><code>##   ID ANG_T1 ANG_T2
+## 1  1      1      4
+## 2  2      2      5
+## 3  3      3      2
+## 4  4      4      3
+## 5  5      2      4
+## 6  6      1      2</code></pre>
+<p>Now, for this bootstrap purpose we actually need to to create a new column which is the difference between the two measurements (here, T1 and T2).</p>
+<p>Then, we bootstrap a one-sample t-test with this new column</p>
+<p>Let us do this:</p>
+<p>Create new difference column:</p>
+<pre><code>##   ID ANG_T1 ANG_T2 DIF
+## 1  1      1      4   3
+## 2  2      2      5   3
+## 3  3      3      2  -1
+## 4  4      4      3  -1
+## 5  5      2      4   2
+## 6  6      1      2   1</code></pre>
+<p>Method 1: we use Infer to bootstrap a CI for the mean of the difference variable, to see whether it includes zero:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<pre><code>## Response: DIF (numeric)
+## # A tibble: 1 × 1
+##    stat
+##   &lt;dbl&gt;
+## 1  1.33</code></pre>
+<pre><code>## # A tibble: 1 × 2
+##   lower_ci upper_ci
+##      &lt;dbl&gt;    &lt;dbl&gt;
+## 1      0.9     1.73</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre><code>## [1] 3.333333</code></pre>
+<p>Method 2: We use a variant of this code to run a 1-sample t-test on the difference variable, testing whether it is different from zero. To do this we need to add some code specifying a comparison with zero:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<pre><code>## # A tibble: 1 × 1
+##   p_value
+##     &lt;dbl&gt;
+## 1       0</code></pre>
+<pre><code>## Response: DIF (numeric)
+## # A tibble: 1 × 1
+##    stat
+##   &lt;dbl&gt;
+## 1  1.33</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre><code>## [1] 3.333333</code></pre>
+<p>Marvelous. We can see that, with both ways of looking at this test, the results suggest that after listening to Ed Sheeran, our sample on average reported more anger</p>
+<p>1: Because the 95% confidence interval does not include 0, I am confident in saying that there is some effect going on here.</p>
+<p>2: Because the bootstrapped probability (as expressed by the p-value) of observing the mean difference in anger between T1 and T2 of 1.33 is very low (0 in our results, but the true value will not be exactly zero), I am confident in saying there is an effect here.</p>
+<p>Not surprised…</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="uncertainty.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-bootstrapping.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DBA.pdf", "DBA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

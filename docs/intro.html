@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Describing the World With Data | WBS DBA: Introduction to Quantitative Analysis</title>
+  <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Describing the World With Data | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Describing the World With Data | WBS DBA: Introduction to Quantitative Analysis" />
+  
+  <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Professor Nick Lee" />
+
+
+<meta name="date" content="2024-01-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="assoc_rel.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WBS DBA Quantitative Methods</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Orientation</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Describing the World With Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.1</b> Box Plots</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.2</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.3</b> Describing Variables and Distributions</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.4</b> Transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="assoc_rel.html"><a href="assoc_rel.html#correlations-and-associations"><i class="fa fa-check"></i><b>3.1</b> Correlations and Associations</a></li>
+<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.2</b> Regression</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="assoc_rel.html"><a href="assoc_rel.html#figure-5.1-page-124-linear-regression-of-sons-on-fathers-heights"><i class="fa fa-check"></i><b>3.2.1</b> Figure 5.1 (page 124) Linear regression of sons’ on fathers’ heights</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.3</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Visualizing Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Understanging Uncertainty</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides"><i class="fa fa-check"></i><b>4.1</b> Back to slides…</a></li>
+<li class="chapter" data-level="4.2" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides-1"><i class="fa fa-check"></i><b>4.2</b> Back to slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-our-previous-samples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping our Previous Samples</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#so-lets-go-back-to-the-slides.."><i class="fa fa-check"></i><b>5.1.1</b> so let’s go back to the slides…..</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides"><i class="fa fa-check"></i><b>5.2.2</b> Back to the slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides-1"><i class="fa fa-check"></i><b>5.3.1</b> Back to the slides…</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
+<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>7.1</b> The Law of Large Numbers</a></li>
+<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.2</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>7.3</b> Rate of Change in Football Goals per Season</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>8</b> ANOVA and Issues with Significance</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ANOVA.html"><a href="ANOVA.html#rate-of-change-in-football-goals-per-season---bonferroni-correction"><i class="fa fa-check"></i><b>8.1</b> Rate of Change in Football Goals per Season - Bonferroni Correction?</a></li>
+<li class="chapter" data-level="8.2" data-path="ANOVA.html"><a href="ANOVA.html#statistical-power"><i class="fa fa-check"></i><b>8.2</b> Statistical Power</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>9</b> Classical Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="H-testing.html"><a href="H-testing.html#premier-league-goals-and-the-poisson-distribution-1"><i class="fa fa-check"></i><b>9.1</b> Premier League Goals and the Poisson Distribution</a></li>
+<li class="chapter" data-level="9.2" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>9.2</b> Correlation Significance Tests</a></li>
+<li class="chapter" data-level="9.3" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>9.3</b> Regression Significance Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WBS DBA: Introduction to Quantitative Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Describing the World With Data<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Here, we will use R to demonstrate a number of important concepts about data displays and descriptions.</p>
+<p>First, we load up some data to look at. We’ll begin by looking at some COVID data. Here is some data from Johns Hopkins University as at April 26 2022 by country about cases, deaths, and mortality for COVID. I’m going to use the top 20 countries in terms of raw number of cases</p>
+<p>So, to demonstrate how we can easily change people’s views of a data set, let’s run some bar charts:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>That’s ugly. We could change the orientation of the labels, but it’s easier to change the orientation of the bars…</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>That’s nice. The basic conclusion we can draw is everyone is pretty much the same in terms of survival rate, although Mexico is a bit down.</p>
+<p>Interestingly, it seems to me that the variation is more pronounced in this presentation where you look ‘down’ a line of results, than above where you look across.</p>
+<p>Anyway, if I wanted to make everyone think that COVID survival rates were really different, there’s a simple trick I could use:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Wow, how do you like that! What’s different?</p>
+<p>Changing the scale of the axis is an old trick, and when used to manipulate opinion it’s a bad thing. However, there is a case to say we need to know what we want to say, before we decide how to say it. When does ‘making sure we see the right message’ move into ‘outright manipulation / misrepresentation?’.</p>
+<p>Here’s another common way this type of data is presented in media and non-scientific reports:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>or a variant:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Technically, it’s wrong to present this data in a line chart, because it is discrete values and does not represent a trend, but it is surprisingly common - probably because it ‘looks more sciency’…</p>
+<p>Ironically, there is some logic behind using line charts with this sort of data, depending on what you are trying to get across - let’s move to excel to demonstrate…</p>
+<p>While we’re at it, we’ll also look at pie charts…</p>
+<p><strong><em>Back to slide deck…</em></strong></p>
+<div id="box-plots" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Box Plots<a href="intro.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="DBA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Interesting stuff, just from the box plot. But, while box plots are nice, they can also obscure stuff. Adding the jitter helps, but there are other ways to display this type of data.</p>
+</div>
+<div id="violin-plots" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Violin Plots<a href="intro.html#violin-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="DBA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Let’s add jitter:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Well, look at that. B has a bimodal distribution…</p>
+<p>Lets look at the violin plot to emphasize this:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Neat!</p>
+<p>Another way to visualize this is with ‘ridges’, which basically compare the densities of variables together:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Cool. This brings us to the idea of….</p>
+</div>
+<div id="describing-variables-and-distributions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Describing Variables and Distributions<a href="intro.html#describing-variables-and-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s load up some more data. Here’s some GDP per head data from the World Bank:</p>
+<p>We have a number of choices as to what to do here, but the first thing we might do is plot a histogram with the data:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>We can change the ‘width’ of the bars with the Binwidth operator:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>And, we can overlay a density distribution on it:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>So, here we have some idea of the distribution. It’s clearly skewed quite heavily, with some outliers at the high end. Let’s summarize this with some numbers:</p>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
+##    233.8   2127.5   6117.5  15162.6  18072.4 173688.2       15</code></pre>
+<pre><code>## 
+##                     GDP2020
+## --------------- -----------
+##            Mean    15162.61
+##         Std.Dev    22146.53
+##             Min      233.84
+##          Median     6117.49
+##             Max   173688.19
+##         N.Valid      251.00
+##       Pct.Valid       94.36</code></pre>
+<p>Let’s chat about these for a bit…</p>
+<p><strong><em>Back to slide deck</em></strong></p>
+</div>
+<div id="transformations" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Transformations<a href="intro.html#transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="DBA_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>As you can see, the data is heavily skewed, or ‘squished’ towards the bottom. This makes it hard to see any patterns by eye.</p>
+<p>We can make it easier to interpret by <em>transforming the variable</em>. Here, using a logarithmic transform.</p>
+<p>Let’s run the box again:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>Nice, see how the spread is easier to interpret here? Log transforms are essentially ‘inverse exponentials’, so what they do is bring down extreme high outliers.</p>
+<p>Let’s see this in some more plots:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>Compare the violin of the log transformed variable with the original:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>In fact, we can use the log transform to revisit some of our COVID data back in EXCEL…</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="assoc_rel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DBA.pdf", "DBA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Understanging Uncertainty | WBS DBA: Introduction to Quantitative Analysis</title>
+  <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Understanging Uncertainty | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Understanging Uncertainty | WBS DBA: Introduction to Quantitative Analysis" />
+  
+  <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Professor Nick Lee" />
+
+
+<meta name="date" content="2024-01-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="assoc_rel.html"/>
+<link rel="next" href="bootstrap.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WBS DBA Quantitative Methods</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Orientation</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Describing the World With Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.1</b> Box Plots</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.2</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.3</b> Describing Variables and Distributions</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.4</b> Transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="assoc_rel.html"><a href="assoc_rel.html#correlations-and-associations"><i class="fa fa-check"></i><b>3.1</b> Correlations and Associations</a></li>
+<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.2</b> Regression</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="assoc_rel.html"><a href="assoc_rel.html#figure-5.1-page-124-linear-regression-of-sons-on-fathers-heights"><i class="fa fa-check"></i><b>3.2.1</b> Figure 5.1 (page 124) Linear regression of sons’ on fathers’ heights</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.3</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Visualizing Multiple Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Understanging Uncertainty</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides"><i class="fa fa-check"></i><b>4.1</b> Back to slides…</a></li>
+<li class="chapter" data-level="4.2" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides-1"><i class="fa fa-check"></i><b>4.2</b> Back to slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-our-previous-samples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping our Previous Samples</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#so-lets-go-back-to-the-slides.."><i class="fa fa-check"></i><b>5.1.1</b> so let’s go back to the slides…..</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides"><i class="fa fa-check"></i><b>5.2.2</b> Back to the slides…</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides-1"><i class="fa fa-check"></i><b>5.3.1</b> Back to the slides…</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
+<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>7.1</b> The Law of Large Numbers</a></li>
+<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.2</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>7.3</b> Rate of Change in Football Goals per Season</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>8</b> ANOVA and Issues with Significance</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ANOVA.html"><a href="ANOVA.html#rate-of-change-in-football-goals-per-season---bonferroni-correction"><i class="fa fa-check"></i><b>8.1</b> Rate of Change in Football Goals per Season - Bonferroni Correction?</a></li>
+<li class="chapter" data-level="8.2" data-path="ANOVA.html"><a href="ANOVA.html#statistical-power"><i class="fa fa-check"></i><b>8.2</b> Statistical Power</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>9</b> Classical Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="H-testing.html"><a href="H-testing.html#premier-league-goals-and-the-poisson-distribution-1"><i class="fa fa-check"></i><b>9.1</b> Premier League Goals and the Poisson Distribution</a></li>
+<li class="chapter" data-level="9.2" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>9.2</b> Correlation Significance Tests</a></li>
+<li class="chapter" data-level="9.3" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>9.3</b> Regression Significance Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WBS DBA: Introduction to Quantitative Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="uncertainty" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Understanging Uncertainty<a href="uncertainty.html#uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>First, let’s grab some data.Here, we will again use the simple three-variable set of simulated data, which represents rates of smoking, rates of cycling, and heart disease incidence. This data is available from: <a href="https://www.scribbr.com/statistics/linear-regression-in-r/" class="uri">https://www.scribbr.com/statistics/linear-regression-in-r/</a></p>
+<pre><code>## # A tibble: 6 × 4
+##    ...1 biking smoking heart.disease
+##   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+## 1     1  30.8    10.9          11.8 
+## 2     2  65.1     2.22          2.85
+## 3     3   1.96   17.6          17.2 
+## 4     4  44.8     2.80          6.82
+## 5     5  69.4    16.0           4.06
+## 6     6  54.4    29.3           9.55</code></pre>
+<p>A slightly different way to look at the data can be done using the Skimr package…</p>
+<table>
+<caption><span id="tab:unnamed-chunk-62">Table 4.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">Heart</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">498</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="15%" />
+<col width="10%" />
+<col width="15%" />
+<col width="7%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">…1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">249.50</td>
+<td align="right">143.90</td>
+<td align="right">1.00</td>
+<td align="right">125.25</td>
+<td align="right">249.50</td>
+<td align="right">373.75</td>
+<td align="right">498.00</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">biking</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">37.79</td>
+<td align="right">21.48</td>
+<td align="right">1.12</td>
+<td align="right">20.20</td>
+<td align="right">35.82</td>
+<td align="right">57.85</td>
+<td align="right">74.91</td>
+<td align="left">▇▇▇▆▇</td>
+</tr>
+<tr class="odd">
+<td align="left">smoking</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.44</td>
+<td align="right">8.29</td>
+<td align="right">0.53</td>
+<td align="right">8.28</td>
+<td align="right">15.81</td>
+<td align="right">22.57</td>
+<td align="right">29.95</td>
+<td align="left">▆▆▇▆▆</td>
+</tr>
+<tr class="even">
+<td align="left">heart.disease</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">10.17</td>
+<td align="right">4.57</td>
+<td align="right">0.55</td>
+<td align="right">6.51</td>
+<td align="right">10.39</td>
+<td align="right">13.72</td>
+<td align="right">20.45</td>
+<td align="left">▃▇▇▇▂</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s calculate some simple summary statistics from this data set to build on. For example, what is the mean and median for ‘smoking’?</p>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.5259  8.2798 15.8146 15.4350 22.5689 29.9467</code></pre>
+<p>There we go. Let’s start to build a table using these values, in the slide deck…</p>
+<div id="back-to-slides" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Back to slides…<a href="uncertainty.html#back-to-slides" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, we know this is simulated data, but let’s imagine that it was actually obtained by an organization like Gallup, or the Office for National Statistics in the UK, using a survey. We can presume the study was done well, and thus it is based on a true random sampling method, and that we assume the study population matches whatever target population we have in mind (remember the ‘inference gaps’).</p>
+<p>What we really want to know is, how close are these statistics (i.e. the mean and median) to the true population values that we would have found if we could survey the entire target population?</p>
+<p>Let’s demonstrate this using an example. First, let’s assume that this sample of 498 people actually now <em>is</em> the population we are interested in. So, we can actually <em>sample from this population</em> and see what happens.</p>
+<p>First, let’s present the distribution for the entire ‘population’ of 498.</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p>Now, let’s actually take a <em>sample</em> of 10 random cases from that population of 498, and look at the relevant statistics and distribution::</p>
+<pre><code>## # A tibble: 10 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1   106   22.5    7.70         11.7 
+##  2   135   70.3   26.2           5.24
+##  3   121   65.6   14.1           4.04
+##  4   362   49.9    3.86          5.33
+##  5   462   34.8   29.8          13.4 
+##  6   286   25.7   23.3          13.6 
+##  7   274   55.4   17.2           7.23
+##  8   304   40.6    2.78          6.57
+##  9    62   11.5    6.74         14.6 
+## 10   365   59.9   22.9           7.32</code></pre>
+<pre><code>## [1] 15.65524</code></pre>
+<pre><code>## [1] 15.45941</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p>We can do the same for successively larger samples, say 50, and 200:</p>
+<pre><code>## # A tibble: 50 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1   326  44.6    17.2           8.31
+##  2    25  30.4    17.0          12.4 
+##  3   483  36.1    13.8           9.73
+##  4   186  45.6    20.6           9.80
+##  5   354   2.98    3.84         15.2 
+##  6     3   1.96   17.6          17.2 
+##  7   219  71.0    15.3           4.08
+##  8   162  22.3    23.2          15.9 
+##  9    81  64.4    10.5           4.57
+## 10    70  22.9    24.6          16.2 
+## # ℹ 40 more rows</code></pre>
+<pre><code>## [1] 15.07986</code></pre>
+<pre><code>## [1] 14.53667</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<pre><code>## # A tibble: 200 × 4
+##     ...1 biking smoking heart.disease
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1    90   34.7    8.64          8.33
+##  2   389   21.5    4.76         10.4 
+##  3   288   45.5   25.8          10.9 
+##  4   404   24.8    6.51         11.6 
+##  5   371   26.3   26.7          15.1 
+##  6   466   60.6   23.8           5.98
+##  7    59   57.2   12.8           5.31
+##  8   240   21.6    9.35         14.0 
+##  9   239   61.4   22.9           6.84
+## 10   285   61.9   26.3           6.86
+## # ℹ 190 more rows</code></pre>
+<pre><code>## [1] 15.34373</code></pre>
+<pre><code>## [1] 15.34373</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>As you can see, the distributions of the smaller samples are more peaky and bumpy, because they are very sensitve to individual data points. As the sample gets larger, it starts to look more like the population right?</p>
+<p>We can build a table now in the slides of the sample statistics (mean and median) showing that in general, as we get closer to the population size, the statistics get closer too.</p>
+</div>
+<div id="back-to-slides-1" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Back to slides…<a href="uncertainty.html#back-to-slides-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="assoc_rel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bootstrap.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-estimation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DBA.pdf", "DBA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
