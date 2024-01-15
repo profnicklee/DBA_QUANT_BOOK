@@ -1,0 +1,108 @@
+---
+title: "RUN_FIRST_SETUP"
+output: html_document
+date: "2024-01-12"
+---
+
+# Run First
+
+In this code, we install all the libraries required to create the DBA Quant Book we need to run these each time we load R to code the book.
+
+Eventually this will be tidied up and duplicates removed, and packages standardized across lessons (e.g. later lessons use things like rstatix and skimr which would help earlier lessons too). For now, let's just get the whole thing done.
+
+## Lesson 2
+
+```{r}
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+library(ggridges)
+library(summarytools)
+```
+
+## Regression
+
+
+```{r}
+# install.packages("ggpubr")
+# install.packages("psych")
+```
+
+
+## Estimates and Bootstraps
+
+```{r}
+#install.packages("boot")
+#install.packages("rstatix")
+#install.packages("skimr")
+#install.packages("infer")
+#install.packages("ggpubr")
+#install.packages("dplyr")
+```
+
+## Probability and Statistics
+
+
+```{r}
+#note: some of these aren't used for the code that I run, but for other parts I have hashed out.
+#install.packages("combinat")
+#install.packages("gtools")
+#install.packages("ggpubr")
+#install.packages("mosaic")
+
+#install.packages("dplyr")
+#install.packages("gganimate")
+#install.packages("gifski")
+#install.packages("png")
+#install.packages("installr")
+```
+
+
+## Lesson 7
+
+
+```{r all packages needed, include=FALSE}
+#baseline setup
+# install.packages("readxl")
+# install.packages("ggplot2")
+# install.packages("tidyverse")
+
+#H-testing setup
+#note: some of these aren't used for the code that I run, but for other parts I have hashed out.
+#install.packages("combinat")
+#install.packages("gtools")
+#install.packages("ggpubr")
+#install.packages("mosaic")
+#install.packages("dplyr")
+#install.packages("gganimate")
+#install.packages("gifski")
+#install.packages("png")
+#install.packages("installr")
+#install.packages("skimr")
+#install.pcakages("rstatix")
+#install.packages("pwr")
+
+```
+
+
+```{r load up all packages, include=FALSE}
+#note: some of these aren't used for the code that I run, but for other parts I have hashed out.
+library(tidyverse)
+library(combinat)
+library(gtools)
+library(readxl)
+library(ggplot2)
+library(ggpubr)
+library(mosaic)
+
+library(dplyr)
+library(gganimate)
+library(gifski)
+library(png)
+library(installr)
+library(skimr)
+library(rstatix)
+library(pwr)
+```

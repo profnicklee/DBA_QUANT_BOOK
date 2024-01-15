@@ -1,0 +1,105 @@
+# Understanging Uncertainty {#uncertainty}
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+
+
+```{r}
+library(readxl)
+library(ggplot2)
+library(boot)
+library(rstatix)
+library(skimr)
+library (infer)
+library(ggpubr)
+library(dplyr)
+
+```
+
+First, let's grab some data.Here, we will again use the simple three-variable set of simulated data, which represents rates of smoking, rates of cycling, and heart disease incidence. This data is available from: <https://www.scribbr.com/statistics/linear-regression-in-r/>
+
+```{r}
+Heart<-read_excel("Data/heart.data.xlsx")
+
+```
+
+```{r}
+head(Heart)
+```
+
+A slightly different way to look at the data can be done using the Skimr package...
+
+```{r}
+skim(Heart)
+```
+
+Let's calculate some simple summary statistics from this data set to build on. For example, what is the mean and median for 'smoking'?
+
+```{r}
+summary(Heart$smoking)
+```
+
+There we go. Let's start to build a table using these values, in the slide deck...
+
+## Back to slides...
+
+Now, we know this is simulated data, but let's imagine that it was actually obtained by an organization like Gallup, or the Office for National Statistics in the UK, using a survey. We can presume the study was done well, and thus it is based on a true random sampling method, and that we assume the study population matches whatever target population we have in mind (remember the 'inference gaps').
+
+What we really want to know is, how close are these statistics (i.e. the mean and median) to the true population values that we would have found if we could survey the entire target population?
+
+Let's demonstrate this using an example. First, let's assume that this sample of 498 people actually now *is* the population we are interested in. So, we can actually *sample from this population* and see what happens.
+
+First, let's present the distribution for the entire 'population' of 498.
+
+```{r}
+ggplot(Heart, aes(x=smoking))+geom_histogram(aes (y=..density..), colour="black", fill="white")
+
+```
+
+Now, let's actually take a *sample* of 10 random cases from that population of 498, and look at the relevant statistics and distribution::
+
+```{r}
+sub.10 <- Heart[sample(nrow(Heart), size = 10, replace = FALSE), ]
+sub.10
+```
+
+```{r}
+median(sub.10$smoking)
+mean(sub.10$smoking)
+```
+
+```{r}
+ggplot(sub.10, aes(x=smoking))+geom_histogram(aes (y=..density..), colour="black", fill="white")
+
+```
+
+We can do the same for successively larger samples, say 50, and 200:
+
+```{r}
+sub.50 <- Heart[sample(nrow(Heart), size = 50, replace = FALSE), ]
+sub.50
+median(sub.50$smoking)
+mean(sub.50$smoking)
+ggplot(sub.50, aes(x=smoking))+geom_histogram(aes (y=..density..), colour="black", fill="white")
+
+```
+
+```{r}
+sub.200 <- Heart[sample(nrow(Heart), size = 200, replace = FALSE), ]
+sub.200
+median(sub.200$smoking)
+median(sub.200$smoking)
+ggplot(sub.200, aes(x=smoking))+geom_histogram(aes (y=..density..), colour="black", fill="white")
+
+```
+
+As you can see, the distributions of the smaller samples are more peaky and bumpy, because they are very sensitve to individual data points. As the sample gets larger, it starts to look more like the population right?
+
+We can build a table now in the slides of the sample statistics (mean and median) showing that in general, as we get closer to the population size, the statistics get closer too.
+
+## Back to slides...
+
