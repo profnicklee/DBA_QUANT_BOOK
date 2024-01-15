@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Introduction to Bootstrapping | WBS DBA: Introduction to Quantitative Analysis" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-12" />
+<meta name="date" content="2024-01-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,70 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -225,63 +161,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="bootstrap" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Introduction to Bootstrapping<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>First, we will demonstrate the basic principle. Let’s use our last sample of 50 from the above example, first we will remind ourselves of its properties and distribution:</p>
-<pre><code>## [1] 16.98714</code></pre>
-<pre><code>## [1] 16.30372</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<pre><code>## [1] 17.04793</code></pre>
+<pre><code>## [1] 16.82658</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Ok lovely. Now, what we do is draw <em>another random sample of 50</em> from this 50, but each time we draw a data point, we <em>replace</em> it back, so we are always drawing our sample from the full 50. This is called <em>sampling with replacement</em>.</p>
 <p>In this way, the new sample can only contain values which were in the original sample, but will contain different numbers of those values, so the distribution will be different, and the statistics may also be different. Let’s do this, and take the mean and median of the sample:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   256  73.1    11.3           1.69
-##  2   310  60.3     8.79          4.59
-##  3   230  22.7     8.29         11.3 
-##  4   135  70.3    26.2           5.24
-##  5   119  27.7    18.6          11.5 
-##  6   423  71.9    19.4           4.11
-##  7   470   6.30   19.4          17.8 
-##  8   197  60.3    15.1           4.95
-##  9   151  12.3    26.9          17.8 
-## 10   111  15.2    14.5          14.6 
+##  1    93  41.0    13.0          10.3 
+##  2   385  31.7    28.7          13.0 
+##  3   407   4.16   19.7          17.1 
+##  4   472  56.2    28.4          10.2 
+##  5     4  44.8     2.80          6.82
+##  6   173  10.1    11.3          14.8 
+##  7    44  23.9     4.19         10.9 
+##  8   485  22.7     1.02         10.9 
+##  9   318  43.9    26.1          11.4 
+## 10   453  10.5    15.0          15.6 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 14.81425</code></pre>
-<pre><code>## [1] 15.50838</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<pre><code>## [1] 17.88377</code></pre>
+<pre><code>## [1] 17.34259</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>Marvellous! Now, let’s do this twice more…</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   313  22.9     2.40         11.0 
-##  2   111  15.2    14.5          14.6 
-##  3   414  29.0    29.2          13.8 
-##  4    59  57.2    12.8           5.31
-##  5   260  37.7    26.3          11.2 
-##  6   414  29.0    29.2          13.8 
-##  7   191  46.8    27.3          10.3 
-##  8    54   9.82   23.8          17.8 
-##  9    80  60.6    18.1           6.52
-## 10   470   6.30   19.4          17.8 
+##  1   135   70.3   26.2           5.24
+##  2   135   70.3   26.2           5.24
+##  3   222   22.7   28.7          16.8 
+##  4    47   20.8   19.5          14.4 
+##  5   135   70.3   26.2           5.24
+##  6   124   15.1    7.89         13.6 
+##  7   233   44.7    7.27          7.65
+##  8   229   25.3    7.17         12.0 
+##  9   372   15.3   22.4          17.3 
+## 10    70   22.9   24.6          16.2 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 18.0652</code></pre>
-<pre><code>## [1] 17.73748</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<pre><code>## [1] 18.61013</code></pre>
+<pre><code>## [1] 16.71665</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   362  49.9     3.86          5.33
-##  2    13  48.8    11.0           6.72
-##  3   230  22.7     8.29         11.3 
-##  4   220  64.1    28.5           7.29
-##  5   226  31.7    23.2          12.5 
-##  6   101  61.2     4.61          4.36
-##  7    59  57.2    12.8           5.31
-##  8    54   9.82   23.8          17.8 
-##  9   122  46.6    26.9          10.5 
-## 10   220  64.1    28.5           7.29
+##  1   407   4.16   19.7          17.1 
+##  2   198  16.0    19.9          15.4 
+##  3    70  22.9    24.6          16.2 
+##  4    44  23.9     4.19         10.9 
+##  5   124  15.1     7.89         13.6 
+##  6   385  31.7    28.7          13.0 
+##  7   443  22.5    16.3          13.7 
+##  8    70  22.9    24.6          16.2 
+##  9     5  69.4    16.0           4.06
+## 10   327   9.82   18.0          16.8 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 13.38729</code></pre>
-<pre><code>## [1] 14.54214</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<pre><code>## [1] 17.16686</code></pre>
+<pre><code>## [1] 17.80052</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>We can build a table in the slides of these mean and median values</p>
 <p>So, this is the basic principle of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a routine to do this thousands of times.</p>
 <p><em>back to slide deck</em></p>
@@ -299,8 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##     original     bias    std. error
-## t1* 15.52315 0.03012235    1.554868</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+## t1* 13.39489 -0.1578758    2.662958</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -309,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (12.45, 18.54 )  
+## 95%   ( 8.33, 18.77 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>Let’s do it for the other two subsamples of n=50, and n=200</p>
 <pre><code>## 
@@ -322,8 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##     original      bias    std. error
-## t1* 16.30372 -0.03333268    1.226603</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+## t1* 16.82658 -0.05301062    1.322541</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -332,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.93, 18.74 )  
+## 95%   (14.29, 19.47 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
@@ -344,8 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##     original     bias    std. error
-## t1* 14.90685 0.01209413   0.5803896</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+## t1* 15.09691 0.01474664   0.5978057</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -354,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.76, 16.03 )  
+## 95%   (13.91, 16.25 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>And, finally, let’s bootstrap our original full sample of 498:</p>
 <pre><code>## 
@@ -368,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Bootstrap Statistics :
 ##     original      bias    std. error
 ## t1* 15.43503 0.001437866    0.359051</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -400,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Andorra            NA       NA    77723
 ## 6 Angola             NA     6110 33428490</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-83">Table 5.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-81">Table 5.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -550,9 +486,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>If we run the same analysis as last time, we’ll get the same results: Correlation R = 0.75</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 <p>Now, let’s take uncertainty into account, by bootstrapping that correlation and creating some confidence intervals, using a cool package called <em>Infer</em>, which makes this almost frighteningly easy:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 <pre><code>## # A tibble: 1 × 2
 ##   lower_ci upper_ci
 ##      &lt;dbl&gt;    &lt;dbl&gt;
@@ -576,7 +512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     5  69.4    16.0           4.06
 ## 6     6  54.4    29.3           9.55</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-87">Table 5.2: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-85">Table 5.2: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -698,7 +634,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Here, we need to calculate multiple intervals as we have multiple estimates, so it’s a bit more complicated, but still fairly intuitive using Infer:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 <pre><code>## # A tibble: 3 × 2
 ##   term      estimate
 ##   &lt;chr&gt;        &lt;dbl&gt;
@@ -730,7 +666,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     5     2     4
 ## 6     6     1     2</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-91">Table 5.3: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-89">Table 5.3: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -841,7 +777,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We need to tell R that GROUP is a factor variable not a numeric one:</p>
 <p>Check it worked:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-93">Table 5.4: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-91">Table 5.4: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -978,7 +914,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   &lt;fct&gt; &lt;dbl&gt;
 ## 1 1      2.8 
 ## 2 2      3.87</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <pre><code>## Response: ANGER (numeric)
 ## Explanatory: GROUP (factor)
 ## # A tibble: 1 × 1
@@ -1015,7 +951,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  5      2      4   2
 ## 6  6      1      2   1</code></pre>
 <p>Method 1: we use Infer to bootstrap a CI for the mean of the difference variable, to see whether it includes zero:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <pre><code>## Response: DIF (numeric)
 ## # A tibble: 1 × 1
 ##    stat
@@ -1028,7 +964,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 2</code></pre>
 <pre><code>## [1] 3.333333</code></pre>
 <p>Method 2: We use a variant of this code to run a 1-sample t-test on the difference variable, testing whether it is different from zero. To do this we need to add some code specifying a comparison with zero:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <pre><code>## # A tibble: 1 × 1
 ##   p_value
 ##     &lt;dbl&gt;
@@ -1108,20 +1044,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

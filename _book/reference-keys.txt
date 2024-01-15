@@ -1,9 +1,9 @@
-tab:unnamed-chunk-64
-tab:unnamed-chunk-83
-tab:unnamed-chunk-87
+tab:unnamed-chunk-62
+tab:unnamed-chunk-81
+tab:unnamed-chunk-85
+tab:unnamed-chunk-89
 tab:unnamed-chunk-91
-tab:unnamed-chunk-93
-tab:unnamed-chunk-144
+tab:unnamed-chunk-142
 introduction-and-orientation
 intro
 box-plots
