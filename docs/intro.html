@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-01-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,10 +79,11 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Orientation</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Describing the World With Data</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.1</b> Box Plots</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.2</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.3</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.4</b> Transformations</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -164,7 +165,7 @@
 <p>First, we load up some data to look at. We’ll begin by looking at some COVID data. Here is some data from Johns Hopkins University as at April 26 2022 by country about cases, deaths, and mortality for COVID. I’m going to use the top 20 countries in terms of raw number of cases</p>
 <p>So, to demonstrate how we can easily change people’s views of a data set, let’s run some bar charts:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>That’s ugly. We could change the orientation of the labels, but it’s easier to change the orientation of the bars…</p>
+<p>On thing we could do is change the orientation of the bars…</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>That’s nice. The basic conclusion we can draw is everyone is pretty much the same in terms of survival rate, although Mexico is a bit down.</p>
 <p>Interestingly, it seems to me that the variation is more pronounced in this presentation where you look ‘down’ a line of results, than above where you look across.</p>
@@ -177,19 +178,22 @@
 <p>or a variant:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Technically, it’s wrong to present this data in a line chart, because it is discrete values and does not represent a trend, but it is surprisingly common - probably because it ‘looks more sciency’…</p>
-<p>Ironically, there is some logic behind using line charts with this sort of data, depending on what you are trying to get across - let’s move to excel to demonstrate…</p>
-<p>While we’re at it, we’ll also look at pie charts…</p>
-<p><strong><em>Back to slide deck…</em></strong></p>
-<div id="box-plots" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Box Plots<a href="intro.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Specifically….EXPLAIN</p>
+<div id="summarizing-data-with-numbers" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Summarizing Data with Numbers<a href="intro.html#summarizing-data-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>mean, median, mode, variance et here.</p>
+</div>
+<div id="box-plots" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Box Plots<a href="intro.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ADD TEXT</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Interesting stuff, just from the box plot. But, while box plots are nice, they can also obscure stuff. Adding the jitter helps, but there are other ways to display this type of data.</p>
 </div>
-<div id="violin-plots" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Violin Plots<a href="intro.html#violin-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="violin-plots" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Violin Plots<a href="intro.html#violin-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="DBA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Let’s add jitter:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
@@ -201,8 +205,8 @@
 <p><img src="DBA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Cool. This brings us to the idea of….</p>
 </div>
-<div id="describing-variables-and-distributions" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Describing Variables and Distributions<a href="intro.html#describing-variables-and-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="describing-variables-and-distributions" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Describing Variables and Distributions<a href="intro.html#describing-variables-and-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s load up some more data. Here’s some GDP per head data from the World Bank:</p>
 <p>We have a number of choices as to what to do here, but the first thing we might do is plot a histogram with the data:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
@@ -226,8 +230,8 @@
 <p>Let’s chat about these for a bit…</p>
 <p><strong><em>Back to slide deck</em></strong></p>
 </div>
-<div id="transformations" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Transformations<a href="intro.html#transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="transformations" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Transformations<a href="intro.html#transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="DBA_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>As you can see, the data is heavily skewed, or ‘squished’ towards the bottom. This makes it hard to see any patterns by eye.</p>
 <p>We can make it easier to interpret by <em>transforming the variable</em>. Here, using a logarithmic transform.</p>

@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-15" />
+<meta name="date" content="2024-01-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,10 +79,11 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Orientation</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Describing the World With Data</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.1</b> Box Plots</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.2</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.3</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.4</b> Transformations</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -308,53 +309,53 @@
 <pre><code>## # A tibble: 10 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   106   22.5    7.70         11.7 
-##  2   135   70.3   26.2           5.24
-##  3   121   65.6   14.1           4.04
-##  4   362   49.9    3.86          5.33
-##  5   462   34.8   29.8          13.4 
-##  6   286   25.7   23.3          13.6 
-##  7   274   55.4   17.2           7.23
-##  8   304   40.6    2.78          6.57
-##  9    62   11.5    6.74         14.6 
-## 10   365   59.9   22.9           7.32</code></pre>
-<pre><code>## [1] 15.65524</code></pre>
-<pre><code>## [1] 15.45941</code></pre>
+##  1    15   10.6    5.99         14.1 
+##  2    70   22.9   24.6          16.2 
+##  3     1   30.8   10.9          11.8 
+##  4   384   68.2   15.3           4.48
+##  5   336   14.7   19.5          14.4 
+##  6   142   11.3    9.23         14.5 
+##  7    62   11.5    6.74         14.6 
+##  8    92   26.9   16.7          13.5 
+##  9   221   61.2    2.19          3.52
+## 10   172   67.4   28.7           5.81</code></pre>
+<pre><code>## [1] 13.10722</code></pre>
+<pre><code>## [1] 13.98118</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 <p>We can do the same for successively larger samples, say 50, and 200:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   326  44.6    17.2           8.31
-##  2    25  30.4    17.0          12.4 
-##  3   483  36.1    13.8           9.73
-##  4   186  45.6    20.6           9.80
-##  5   354   2.98    3.84         15.2 
-##  6     3   1.96   17.6          17.2 
-##  7   219  71.0    15.3           4.08
-##  8   162  22.3    23.2          15.9 
-##  9    81  64.4    10.5           4.57
-## 10    70  22.9    24.6          16.2 
+##  1    56   28.6    1.15         10.1 
+##  2   288   45.5   25.8          10.9 
+##  3    67   23.3   14.3          13.3 
+##  4   376   23.3   20.7          13.8 
+##  5   349   68.0   13.3           4.07
+##  6   318   43.9   26.1          11.4 
+##  7   393   54.1   26.0           8.85
+##  8    65   42.3    8.41          7.46
+##  9   440   30.5   18.1          11.7 
+## 10   109   49.7   20.5           8.70
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 15.07986</code></pre>
-<pre><code>## [1] 14.53667</code></pre>
+<pre><code>## [1] 17.84924</code></pre>
+<pre><code>## [1] 16.68265</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <pre><code>## # A tibble: 200 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1    90   34.7    8.64          8.33
-##  2   389   21.5    4.76         10.4 
-##  3   288   45.5   25.8          10.9 
-##  4   404   24.8    6.51         11.6 
-##  5   371   26.3   26.7          15.1 
-##  6   466   60.6   23.8           5.98
-##  7    59   57.2   12.8           5.31
-##  8   240   21.6    9.35         14.0 
-##  9   239   61.4   22.9           6.84
-## 10   285   61.9   26.3           6.86
+##  1   201  35.0    22.7          12.5 
+##  2   329  15.1     3.28         12.7 
+##  3   187  29.7    12.2          12.8 
+##  4   214  70.1    10.4           2.24
+##  5    38  29.9    24.6          13.5 
+##  6   144  50.6    28.9          10.6 
+##  7   162  22.3    23.2          15.9 
+##  8   107  49.8     3.57          6.26
+##  9   115   2.14   25.8          19.2 
+## 10   433   3.22    9.18         16.5 
 ## # ℹ 190 more rows</code></pre>
-<pre><code>## [1] 15.34373</code></pre>
-<pre><code>## [1] 15.34373</code></pre>
+<pre><code>## [1] 15.2617</code></pre>
+<pre><code>## [1] 15.2617</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
 <p>As you can see, the distributions of the smaller samples are more peaky and bumpy, because they are very sensitve to individual data points. As the sample gets larger, it starts to look more like the population right?</p>
 <p>We can build a table now in the slides of the sample statistics (mean and median) showing that in general, as we get closer to the population size, the statistics get closer too.</p>

@@ -4,7 +4,6 @@
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-
 ```{r}
 library(readxl)
 library(ggplot2)
@@ -26,13 +25,15 @@ COVID <- read_excel("Data/COVID.xlsx",sheet = "Top 20")
 So, to demonstrate how we can easily change people's views of a data set, let's run some bar charts:
 
 ```{r}
-ggplot(COVID,aes(NAME,S_RATE))+geom_bar(stat="identity")
+p <- ggplot(COVID,aes(NAME,S_RATE))
+p2 <- p +geom_bar(stat="identity")+theme(axis.text.x = element_text(angle = 90))+scale_x_discrete(name="Country")+scale_y_continuous(name = "Survival Rate")
+p2
 ```
 
-That's ugly. We could change the orientation of the labels, but it's easier to change the orientation of the bars...
+On thing we could do is change the orientation of the bars...
 
 ```{r}
-ggplot(COVID,aes(NAME,S_RATE))+geom_bar(stat="identity")+coord_flip()
+p2 + coord_flip()
 ```
 
 That's nice. The basic conclusion we can draw is everyone is pretty much the same in terms of survival rate, although Mexico is a bit down.
@@ -42,7 +43,9 @@ Interestingly, it seems to me that the variation is more pronounced in this pres
 Anyway, if I wanted to make everyone think that COVID survival rates were really different, there's a simple trick I could use:
 
 ```{r}
-ggplot(COVID,aes(NAME,S_RATE))+geom_bar(stat="identity")+coord_flip(ylim=c(90,100))
+# ggplot(COVID,aes(NAME,S_RATE))+geom_bar(stat="identity")+coord_flip(ylim=c(90,100))
+
+p2 + coord_cartesian(ylim = c(90, 100))
 ```
 
 Wow, how do you like that! What's different?
@@ -52,24 +55,33 @@ Changing the scale of the axis is an old trick, and when used to manipulate opin
 Here's another common way this type of data is presented in media and non-scientific reports:
 
 ```{r}
-ggplot(COVID,aes(NAME,S_RATE, group=1))+geom_line()+geom_point()
+#ggplot(COVID,aes(NAME,S_RATE, group=1))+geom_line()+geom_point()
+p + aes(group=1) + geom_line()+geom_point() +theme(axis.text.x = element_text(angle = 90))+scale_x_discrete(name="Country")+scale_y_continuous(name = "Survival Rate")
 ```
 
 or a variant:
 
 ```{r}
-ggplot(COVID,aes(NAME,S_RATE, group=1))+geom_step()+geom_point()
+#ggplot(COVID,aes(NAME,S_RATE, group=1))+geom_step()+geom_point()
+p + aes(group=1) + geom_step()+geom_point() +theme(axis.text.x = element_text(angle = 90))+scale_x_discrete(name="Country")+scale_y_continuous(name = "Survival Rate")
 ```
 
 Technically, it's wrong to present this data in a line chart, because it is discrete values and does not represent a trend, but it is surprisingly common - probably because it 'looks more sciency'...
 
-Ironically, there is some logic behind using line charts with this sort of data, depending on what you are trying to get across - let's move to excel to demonstrate...
+ 
 
-While we're at it, we'll also look at pie charts...
+Specifically....EXPLAIN
 
-***Back to slide deck...***
+
+## Summarizing Data with Numbers
+
+
+mean, median, mode, variance et here. 
+
 
 ## Box Plots
+
+ADD TEXT
 
 ```{r}
 ggplot(COVID, aes( y=CASES))+geom_boxplot()
@@ -261,4 +273,3 @@ ggplot(GDP,aes(x="", y=GDP2020))+geom_violin()
 ```
 
 In fact, we can use the log transform to revisit some of our COVID data back in EXCEL...
-

@@ -6,6 +6,7 @@ tab:unnamed-chunk-91
 tab:unnamed-chunk-142
 introduction-and-orientation
 intro
+summarizing-data-with-numbers
 box-plots
 violin-plots
 describing-variables-and-distributions
