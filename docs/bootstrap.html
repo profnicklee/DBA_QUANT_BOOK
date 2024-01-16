@@ -162,62 +162,62 @@
 <div id="bootstrap" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Introduction to Bootstrapping<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>First, we will demonstrate the basic principle. Let’s use our last sample of 50 from the above example, first we will remind ourselves of its properties and distribution:</p>
-<pre><code>## [1] 19.42578</code></pre>
-<pre><code>## [1] 17.19602</code></pre>
+<pre><code>## [1] 15.95366</code></pre>
+<pre><code>## [1] 15.44903</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Ok lovely. Now, what we do is draw <em>another random sample of 50</em> from this 50, but each time we draw a data point, we <em>replace</em> it back, so we are always drawing our sample from the full 50. This is called <em>sampling with replacement</em>.</p>
 <p>In this way, the new sample can only contain values which were in the original sample, but will contain different numbers of those values, so the distribution will be different, and the statistics may also be different. Let’s do this, and take the mean and median of the sample:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   418   62.0   23.9           6.96
-##  2    22   18.5   26.4          16.0 
-##  3   211   16.2   28.4          17.4 
-##  4   311   33.9   24.4          11.4 
-##  5   451   24.7   25.6          13.7 
-##  6   389   21.5    4.76         10.4 
-##  7    65   42.3    8.41          7.46
-##  8    23   24.5   26.9          15.0 
-##  9   376   23.3   20.7          13.8 
-## 10   248   29.7   23.3          13.0 
+##  1   129  17.6   27.2           15.1 
+##  2    12  52.9   25.1            8.61
+##  3   112  58.0   15.7            6.56
+##  4    38  29.9   24.6           13.5 
+##  5   187  29.7   12.2           12.8 
+##  6   238   9.94  22.3           16.4 
+##  7   187  29.7   12.2           12.8 
+##  8   129  17.6   27.2           15.1 
+##  9   442  33.0    0.682          8.56
+## 10   344   8.63   4.38          14.5 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 19.51047</code></pre>
-<pre><code>## [1] 17.02272</code></pre>
+<pre><code>## [1] 16.48961</code></pre>
+<pre><code>## [1] 16.4042</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>Marvellous! Now, let’s do this twice more…</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   326  44.6   17.2            8.31
-##  2    55   4.38  20.7           17.4 
-##  3   470   6.30  19.4           17.8 
-##  4   151  12.3   26.9           17.8 
-##  5     2  65.1    2.22           2.85
-##  6   212  47.6   29.5           11.6 
-##  7    22  18.5   26.4           16.0 
-##  8   456  55.2   15.3            7.02
-##  9   398  58.4    0.734          3.23
-## 10   230  22.7    8.29          11.3 
+##  1   295   34.0   13.1          10.4 
+##  2   258   10.7   16.5          15.4 
+##  3    65   42.3    8.41          7.46
+##  4    71   59.8    8.70          5.69
+##  5   187   29.7   12.2          12.8 
+##  6   326   44.6   17.2           8.31
+##  7    71   59.8    8.70          5.69
+##  8   406   18.0   26.8          16.2 
+##  9    28   45.2    2.14          6.59
+## 10    38   29.9   24.6          13.5 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.96836</code></pre>
-<pre><code>## [1] 16.07737</code></pre>
+<pre><code>## [1] 12.74786</code></pre>
+<pre><code>## [1] 13.85639</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   408  50.8    20.0           7.93
-##  2   144  50.6    28.9          10.6 
-##  3   359   9.66    4.35         13.6 
-##  4   359   9.66    4.35         13.6 
-##  5   387  64.4    29.3           7.33
-##  6    55   4.38   20.7          17.4 
-##  7   111  15.2    14.5          14.6 
-##  8   151  12.3    26.9          17.8 
-##  9   144  50.6    28.9          10.6 
-## 10   456  55.2    15.3           7.02
+##  1   295   34.0  13.1          10.4  
+##  2   373   74.6  16.2           2.91 
+##  3    45   22.6  13.7          13.5  
+##  4   290   63.8  29.1           7.62 
+##  5   399   71.7   0.942         0.555
+##  6   406   18.0  26.8          16.2  
+##  7   280   28.5  17.3          11.7  
+##  8    28   45.2   2.14          6.59 
+##  9   218   65.1   1.49          2.19 
+## 10   191   46.8  27.3          10.3  
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 19.11579</code></pre>
-<pre><code>## [1] 17.82919</code></pre>
+<pre><code>## [1] 16.19374</code></pre>
+<pre><code>## [1] 14.80765</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>We can build a table in the slides of these mean and median values</p>
 <p>So, this is the basic principle of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a routine to do this thousands of times.</p>
@@ -235,8 +235,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original     bias    std. error
-## t1*  13.2667 0.07624822    2.192841</code></pre>
+##     original    bias    std. error
+## t1* 13.23908 0.1981037    2.928606</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -246,7 +246,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   ( 8.89, 17.49 )  
+## 95%   ( 7.30, 18.78 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>Let’s do it for the other two subsamples of n=50, and n=200</p>
 <pre><code>## 
@@ -259,7 +259,7 @@
 ## 
 ## Bootstrap Statistics :
 ##     original     bias    std. error
-## t1* 17.19602 0.04268227     1.19749</code></pre>
+## t1* 15.44903 0.01173039    1.238074</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -269,7 +269,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (14.81, 19.50 )  
+## 95%   (13.01, 17.86 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
@@ -281,7 +281,7 @@
 ## 
 ## Bootstrap Statistics :
 ##     original     bias    std. error
-## t1* 15.28201 0.02250027   0.5776871</code></pre>
+## t1* 14.98677 0.02403849   0.5977453</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -291,7 +291,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (14.13, 16.39 )  
+## 95%   (13.79, 16.13 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>And, finally, let’s bootstrap our original full sample of 498:</p>
 <pre><code>## 
