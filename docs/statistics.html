@@ -82,8 +82,6 @@
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -173,7 +171,7 @@
 ## 4     0     4         1 0.2500000
 ## 5     1     5         2 0.4000000
 ## 6     0     6         2 0.3333333</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 </div>
 <div id="the-distribution-of-sample-means-and-the-central-limit-theorem" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> The Distribution of Sample Means, and the Central Limit Theorem<a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -190,7 +188,7 @@
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    5600    7500    9400    9400   11300   13200</code></pre>
 <p>Let’s plot the distribution, and if we do so we will find that it is essentially uniform - every value occurs once in the population.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Now, what I am going to do is take a sample of 2 from that population, and take the mean</p>
 <p>I do this using a ‘combination’ operation</p>
 <pre><code>## [1] &quot;One Random Combination of 2 of the 20 Income Values&quot;</code></pre>
@@ -417,11 +415,11 @@
 ## 5 5600 7600  6600
 ## 6 5600 8000  6800</code></pre>
 <p>OK, so here is the kicker. Let’s plot a histogram of these means:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <p>Well well well!</p>
 <p>Even though the original population was a completely uniform distribution with a mean of 9400, the distribution of all of the sample means looks quite a lot like a gaussian / normal distribution!</p>
 <p>Let’s overlay one on it as well to make the point…</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>Further, let’s take the mean of those means…</p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    5800    8200    9400    9400   10600   13000</code></pre>
@@ -443,7 +441,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.</code></pre>
 <p>You can see here I have calculated the standard errors from the yearly goal totals (which represent that year’s underlying rate of goal occurrence), then used that to calculate the 95% Confidence Interval limits</p>
 <p>We can use these to create a nifty chart with the error bars…drawing from the code used by Spiegelhalter in his book for Figure 9.4 available on his github (linked in the code).</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 <p>From this chart, and looking at the data itself, we can see that the 95% Intervals overlap, so it is hard to conclude that the underlying rate of goals has changed significantly year on year. Yes, even in the pandemic.</p>
 <p>The closest we get in fact is between the 2008-2009 and 2009-10 season. Interestingly, this corresponds to when Man City were bought, and it is evident that the top teams scored a lot more that year.</p>
 <p>This is a stringent test however, and the ONS suggest that you can also test the change by using a Z-test, which <em>directly tests the hypothesis</em> that the change is zero, using the assumption that the events are Poisson distributed (we agree) and also that when the number of events are large (generally over 20), we can use an approximation to the normal distribution.</p>
@@ -462,7 +460,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.    -68 -1.50</code></pre>
 <p>The ‘Z’ column is what we are interested in, and we are looking for a z-value greater than + or - 1.96 for a 95% test (analogous to the 95% intervals we’ve been dealing with so far).</p>
 <p>A simple way to visualize this is to plot the z-values for each season, and include ‘control lines’ which represent the + or -1.96 z value, beyond which we consider there to be a significant difference</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p>So, we can see that the 1999-2000 season, and the 2009-10 seasons exceed our z values, making them significantly different from the seasons before.</p>
 <p>Of course, we could do z-tests for any combination of two seasons, if we had a good reason. You can see on the ONS website they do this for different years’ murder rates to make a point.</p>
 

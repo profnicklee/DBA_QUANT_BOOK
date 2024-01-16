@@ -82,8 +82,6 @@
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -162,63 +160,63 @@
 <div id="bootstrap" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Introduction to Bootstrapping<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>First, we will demonstrate the basic principle. Let’s use our last sample of 50 from the above example, first we will remind ourselves of its properties and distribution:</p>
-<pre><code>## [1] 15.95366</code></pre>
-<pre><code>## [1] 15.44903</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<pre><code>## [1] 16.72819</code></pre>
+<pre><code>## [1] 15.86291</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>Ok lovely. Now, what we do is draw <em>another random sample of 50</em> from this 50, but each time we draw a data point, we <em>replace</em> it back, so we are always drawing our sample from the full 50. This is called <em>sampling with replacement</em>.</p>
 <p>In this way, the new sample can only contain values which were in the original sample, but will contain different numbers of those values, so the distribution will be different, and the statistics may also be different. Let’s do this, and take the mean and median of the sample:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   129  17.6   27.2           15.1 
-##  2    12  52.9   25.1            8.61
-##  3   112  58.0   15.7            6.56
-##  4    38  29.9   24.6           13.5 
-##  5   187  29.7   12.2           12.8 
-##  6   238   9.94  22.3           16.4 
-##  7   187  29.7   12.2           12.8 
-##  8   129  17.6   27.2           15.1 
-##  9   442  33.0    0.682          8.56
-## 10   344   8.63   4.38          14.5 
+##  1    54   9.82   23.8          17.8 
+##  2   365  59.9    22.9           7.32
+##  3   497  42.3    20.7          10.1 
+##  4   151  12.3    26.9          17.8 
+##  5   206  44.0     6.58          8.50
+##  6   420   4.73   24.1          19.6 
+##  7    82  20.3    11.2          12.4 
+##  8   461  71.4    12.8           3.26
+##  9    49  28.6    12.5          11.4 
+## 10   393  54.1    26.0           8.85
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.48961</code></pre>
-<pre><code>## [1] 16.4042</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<pre><code>## [1] 18.37086</code></pre>
+<pre><code>## [1] 16.96655</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 <p>Marvellous! Now, let’s do this twice more…</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   295   34.0   13.1          10.4 
-##  2   258   10.7   16.5          15.4 
-##  3    65   42.3    8.41          7.46
-##  4    71   59.8    8.70          5.69
-##  5   187   29.7   12.2          12.8 
-##  6   326   44.6   17.2           8.31
-##  7    71   59.8    8.70          5.69
-##  8   406   18.0   26.8          16.2 
-##  9    28   45.2    2.14          6.59
-## 10    38   29.9   24.6          13.5 
+##  1    50   21.1  18.9           14.8 
+##  2   397   41.4   5.16           7.15
+##  3   271   69.3   4.66           2.20
+##  4    30   25.1   5.84          11.5 
+##  5   206   44.0   6.58           8.50
+##  6   424   58.0  20.6            7.50
+##  7   250   47.5  20.1            8.94
+##  8   424   58.0  20.6            7.50
+##  9   442   33.0   0.682          8.56
+## 10   342   33.3  17.3           11.3 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 12.74786</code></pre>
-<pre><code>## [1] 13.85639</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<pre><code>## [1] 12.0324</code></pre>
+<pre><code>## [1] 12.67542</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   295   34.0  13.1          10.4  
-##  2   373   74.6  16.2           2.91 
-##  3    45   22.6  13.7          13.5  
-##  4   290   63.8  29.1           7.62 
-##  5   399   71.7   0.942         0.555
-##  6   406   18.0  26.8          16.2  
-##  7   280   28.5  17.3          11.7  
-##  8    28   45.2   2.14          6.59 
-##  9   218   65.1   1.49          2.19 
-## 10   191   46.8  27.3          10.3  
+##  1   241   6.28    20.2         17.6 
+##  2   294  67.0     24.2          5.80
+##  3   424  58.0     20.6          7.50
+##  4    74  49.4     23.2          9.47
+##  5   473  74.2     26.1          4.63
+##  6   166  72.2     15.3          2.83
+##  7   189   5.51    17.9         16.0 
+##  8   353  64.2     19.0          6.06
+##  9   294  67.0     24.2          5.80
+## 10   393  54.1     26.0          8.85
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.19374</code></pre>
-<pre><code>## [1] 14.80765</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<pre><code>## [1] 18.41278</code></pre>
+<pre><code>## [1] 17.15724</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <p>We can build a table in the slides of these mean and median values</p>
 <p>So, this is the basic principle of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a routine to do this thousands of times.</p>
 <p><em>back to slide deck</em></p>
@@ -235,9 +233,9 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original    bias    std. error
-## t1* 13.23908 0.1981037    2.928606</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+##     original     bias    std. error
+## t1* 16.35451 0.02016505    2.192858</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -246,7 +244,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   ( 7.30, 18.78 )  
+## 95%   (12.04, 20.63 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>Let’s do it for the other two subsamples of n=50, and n=200</p>
 <pre><code>## 
@@ -259,8 +257,8 @@
 ## 
 ## Bootstrap Statistics :
 ##     original     bias    std. error
-## t1* 15.44903 0.01173039    1.238074</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+## t1* 15.86291 0.03392486    1.190331</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -269,7 +267,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.01, 17.86 )  
+## 95%   (13.50, 18.16 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
@@ -280,9 +278,9 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original     bias    std. error
-## t1* 14.98677 0.02403849   0.5977453</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+##     original       bias    std. error
+## t1*  15.3576 -0.003069054     0.58079</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -291,7 +289,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.79, 16.13 )  
+## 95%   (14.22, 16.50 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>And, finally, let’s bootstrap our original full sample of 498:</p>
 <pre><code>## 
@@ -305,7 +303,7 @@
 ## Bootstrap Statistics :
 ##     original      bias    std. error
 ## t1* 15.43503 0.001437866    0.359051</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
 ## 
@@ -337,7 +335,7 @@
 ## 5 Andorra            NA       NA    77723
 ## 6 Angola             NA     6110 33428490</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-81">Table 5.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-72">Table 5.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -487,9 +485,9 @@
 </tbody>
 </table>
 <p>If we run the same analysis as last time, we’ll get the same results: Correlation R = 0.75</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>Now, let’s take uncertainty into account, by bootstrapping that correlation and creating some confidence intervals, using a cool package called <em>Infer</em>, which makes this almost frighteningly easy:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <pre><code>## # A tibble: 1 × 2
 ##   lower_ci upper_ci
 ##      &lt;dbl&gt;    &lt;dbl&gt;
@@ -513,7 +511,7 @@
 ## 5     5  69.4    16.0           4.06
 ## 6     6  54.4    29.3           9.55</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-85">Table 5.2: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-76">Table 5.2: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -635,7 +633,7 @@
 </tbody>
 </table>
 <p>Here, we need to calculate multiple intervals as we have multiple estimates, so it’s a bit more complicated, but still fairly intuitive using Infer:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <pre><code>## # A tibble: 3 × 2
 ##   term      estimate
 ##   &lt;chr&gt;        &lt;dbl&gt;
@@ -667,7 +665,7 @@
 ## 5     5     2     4
 ## 6     6     1     2</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-89">Table 5.3: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-80">Table 5.3: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -778,7 +776,7 @@
 <p>We need to tell R that GROUP is a factor variable not a numeric one:</p>
 <p>Check it worked:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-91">Table 5.4: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-82">Table 5.4: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -915,7 +913,7 @@
 ##   &lt;fct&gt; &lt;dbl&gt;
 ## 1 1      2.8 
 ## 2 2      3.87</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 <pre><code>## Response: ANGER (numeric)
 ## Explanatory: GROUP (factor)
 ## # A tibble: 1 × 1
@@ -952,7 +950,7 @@
 ## 5  5      2      4   2
 ## 6  6      1      2   1</code></pre>
 <p>Method 1: we use Infer to bootstrap a CI for the mean of the difference variable, to see whether it includes zero:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <pre><code>## Response: DIF (numeric)
 ## # A tibble: 1 × 1
 ##    stat
@@ -965,7 +963,7 @@
 <pre><code>## [1] 2</code></pre>
 <pre><code>## [1] 3.333333</code></pre>
 <p>Method 2: We use a variant of this code to run a 1-sample t-test on the difference variable, testing whether it is different from zero. To do this we need to add some code specifying a comparison with zero:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <pre><code>## # A tibble: 1 × 1
 ##   p_value
 ##     &lt;dbl&gt;

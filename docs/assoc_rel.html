@@ -82,8 +82,6 @@
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -177,13 +175,13 @@
 ## GDPpc     731.0 1.125570e+05 1.118260e+05  1.58     2.55     1476.05
 ## Pop       809.0 4.663087e+09 4.663086e+09 11.65   152.44 21333379.77</code></pre>
 <p>Let’s run a basic scatterplot and see what happens.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>Interpretation, there’s seemingly an association here. As one variable increases, the other does too.</p>
 <p>Interestingly, I have chosen to put Happiness on the x-axis, which <em>implies</em> that the driver of GDP is happiness, whereas if you look at the media articles that are regularly written on this kind of topic, it is usually done the other way round, <em>implying</em> that the driver of happiness is GDP.</p>
 <p>Nevertheless, while that’s an interesting little aside which might be worth thinking about some more, it’s important that you do <strong>NOT</strong> draw any causal conclusion from this very basic scatterplot, since there are many other things which could be going on. For example, there could be a spurious relationship - what could cause <em>both</em> happiness and GDPpc to increase?</p>
 <p>Ideas? could it simply be ‘economic development of the country’, or ‘political stability’? Or something else?</p>
 <p>Either way, let’s flip this around to more closely resemble figures that often appear using this (and similar) data in the media:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>There we go, looks very like the figure on the slide from the Economist.</p>
 <p>But this association also looks kind of <em>nonlinear</em> to me. There are multiple ways to look at this:</p>
 <ol style="list-style-type: decimal">
@@ -204,7 +202,7 @@
 ## Pop       809.00 4.663087e+09 4.663086e+09 11.65   152.44 21333379.77
 ## GDPpc_log   6.59 1.163000e+01 5.040000e+00 -0.25    -0.79        0.08</code></pre>
 <p>Let’s rerun the plot…</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>That’s kind of cool.</p>
 <p>Now, what we could do is look at the <em>correlations</em> for a slightly different way of interpreting the information.</p>
 <p>Let’s pop back to the slide deck…</p>
@@ -237,15 +235,15 @@
 <div id="regression" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Regression<a href="assoc_rel.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can add a regression line to this scatterplot, for some extra information over the correlation</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>I might also decide to do this with the log GDPpc to see what happens.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>So, this is an improvement, but not by that much in my view. That said, it’s clear that the line is a bit more accurate (the errors are lower which can be seen by the narrower shaded regions)</p>
 <p>Either way, the regression line adds a layer of information on to the correlation, which allows us to predict y from x.</p>
 <p>How so? Well, let’s add the regression equation to the chart to see:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <p>This adds an <em>intercept</em>, and with that plus the coefficient we have all we need to plot a straight line, which we can <em>extrapolate</em> to higher values of GDPpc (although remember this is the logged GDP variable) and predict what the happiness scores would be.</p>
 <p>This is obviously viable to the extent we can justify the relationship, and also within the parameters of our variables, and how confident we are that the relationship is consistent at all levels of the variables.</p>
 <p>Let’s pop back to the slide deck again for a second…..</p>
@@ -300,7 +298,7 @@
 ## Residual standard error: 2.424 on 463 degrees of freedom
 ## Multiple R-squared:  0.1531, Adjusted R-squared:  0.1513 
 ## F-statistic: 83.72 on 1 and 463 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -312,7 +310,7 @@
 ## sample estimates:
 ##       cor 
 ## 0.3913174</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>Figure 5.1 Scatter of heights of 465 fathers and sons from Galton’s data (many fathers are repeated since they have multiple sons). A jitter has been added to separate the points, and the diagonal dashed line represents exact equality between son and father’s heights. The solid line is the standard ‘best-fit’ line. Each point gives rise to a ‘residual’ (dashed line), which is the size of the error were we to use the line to predict a son’s height from his father’s.</p>
 </div>
 </div>
@@ -329,9 +327,9 @@
 ## biking         0.07    -1.22 0.96
 ## smoking       -0.04    -1.12 0.37
 ## heart.disease -0.03    -0.93 0.20</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <p>OK, so these are <em>simple</em> regression lines, with bivariate scatterplots. What I mean, is the effect of biking on heart disease does not take account of the effect of smoking on heart disease. What we need to do is run a model which takes account of <em>both</em> the predictors.</p>
 <p>Let’s pop back to the slides for a second…</p>
 <p>Now we can run the Multiple Regression Model</p>
@@ -399,7 +397,7 @@
 <p>Some people like to use 3D-style plots, which look cool, but are not always easy to interpret, and take quite a lot of extra work, for what I would say is not that much payoff (if any).</p>
 <p>In this case, we can use a pretty simple visualization, where we could plot the relationship of biking to heart disease at different levels of smoking.</p>
 <p>This would be a quite typical way to do things if we thought the relationship between biking and heart disease changed according to the level of smoking, in which case it would be a moderator. Here, it doesn’t really work that way, but it’s a cool visualization regardless. It does require some data prep, but not that much, and I took the basic idea from the website where I sourced the data: <a href="https://www.scribbr.com/statistics/linear-regression-in-r/" class="uri">https://www.scribbr.com/statistics/linear-regression-in-r/</a></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-57-1.png" width="672" /><img src="DBA_files/figure-html/unnamed-chunk-57-2.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-48-1.png" width="672" /><img src="DBA_files/figure-html/unnamed-chunk-48-2.png" width="672" /></p>
 <p>Here, we can see that the effect of smoking is really just to raise the likelihood of heart disease, however much biking you do.</p>
 <p>So, for a given person who bikes a given amount, if they smoke more they will have a higher risk than a person who bikes the same amount but smokes less.</p>
 <p>But, for a given smoker, the more they bike, the lower their risk of heart disease, to the extent that if a heavy smoker bikes enough, their actual risk of heart disease could even be lower than a non-smoker who does not bike at all.</p>

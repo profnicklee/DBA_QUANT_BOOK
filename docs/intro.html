@@ -82,8 +82,6 @@
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#describing-variables-and-distributions"><i class="fa fa-check"></i><b>2.4</b> Describing Variables and Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#transformations"><i class="fa fa-check"></i><b>2.5</b> Transformations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
@@ -165,7 +163,7 @@
 <p>First, we load up some data to look at. We’ll begin by looking at some COVID data. Here is some data from Johns Hopkins University as at April 26 2022 by country about cases, deaths, and mortality for COVID. I’m going to use the top 20 countries in terms of raw number of cases</p>
 <p>So, to demonstrate how we can easily change people’s views of a data set, let’s run some bar charts:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>On thing we could do is change the orientation of the bars…</p>
+<p>One thing we could do is change the orientation of the bars…</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>That’s nice. The basic conclusion we can draw is everyone is pretty much the same in terms of survival rate, although Mexico is a bit down.</p>
 <p>Interestingly, it seems to me that the variation is more pronounced in this presentation where you look ‘down’ a line of results, than above where you look across.</p>
@@ -178,47 +176,20 @@
 <p>or a variant:</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Technically, it’s wrong to present this data in a line chart, because it is discrete values and does not represent a trend, but it is surprisingly common - probably because it ‘looks more sciency’…</p>
-<p>Specifically….EXPLAIN</p>
-<p>test 2</p>
 <div id="summarizing-data-with-numbers" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Summarizing Data with Numbers<a href="intro.html#summarizing-data-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>test</p>
-<p>mean, median, mode, variance et here.</p>
-</div>
-<div id="box-plots" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Box Plots<a href="intro.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ADD TEXT</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Above, we simply graphed a single variable of interest, and showed that some very basic changes to how it was displayed had the potential to ‘lead’ the reader to different conclusions.</p>
+<p>Now, let’s think about the idea of and even simpler way to describe date - by summarizing it with simply numbers.</p>
+<p>For this example, I am going to use data on GDP per head in 2020 for each nation, from the World Bank:</p>
+<p>Before I do anything else, I’m going to graph it again. This time I will use a histogram, which is similar to a bar chart, but not the same thing.</p>
+<p>Specifically, a bar chart is used when we are displaying discrete categories. So, above, we had 20 countries, and a single bar for each country.</p>
+<p>A histogram is instead when we divide our data into ‘groups’ of similar values, which are called ‘bins’. Thus, each ‘bar’ on a histogram represents the number of elements (in this case, countries) which fall in that bin. So, in this case, we can divide the GDP variable into bins.</p>
+<p>As an example, we can divide GDP per head into ‘bins’ of US$10000, and plot a histogram</p>
 <p><img src="DBA_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p>Interesting stuff, just from the box plot. But, while box plots are nice, they can also obscure stuff. Adding the jitter helps, but there are other ways to display this type of data.</p>
-</div>
-<div id="violin-plots" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Violin Plots<a href="intro.html#violin-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="DBA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Let’s add jitter:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<p>Well, look at that. B has a bimodal distribution…</p>
-<p>Lets look at the violin plot to emphasize this:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Neat!</p>
-<p>Another way to visualize this is with ‘ridges’, which basically compare the densities of variables together:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<p>Cool. This brings us to the idea of….</p>
-</div>
-<div id="describing-variables-and-distributions" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Describing Variables and Distributions<a href="intro.html#describing-variables-and-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s load up some more data. Here’s some GDP per head data from the World Bank:</p>
-<p>We have a number of choices as to what to do here, but the first thing we might do is plot a histogram with the data:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<p>We can change the ‘width’ of the bars with the Binwidth operator:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>And, we can overlay a density distribution on it:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p>So, here we have some idea of the distribution. It’s clearly skewed quite heavily, with some outliers at the high end. Let’s summarize this with some numbers:</p>
-<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
-##    233.8   2127.5   6117.5  15162.6  18072.4 173688.2       15</code></pre>
+<p>As you can see, there are nearly 120 countries in the first bin, which you can also see runs from -5000 to 5000 dollars. Of course, we know there are no countries with negative GDP per head, but this is just an artefact of the binning process.</p>
+<p>This sort of chart gives us something very different to a bar chart. Instead, it is really a <strong>frequency distribution</strong>, and it charts the frequency of values of a given variable - in this case GDP per head.</p>
+<p>So, here we have some idea of the <strong>distribution</strong> of the variable. It’s clearly skewed quite heavily, with some outliers at the high end.</p>
+<p>Let’s move on to summarize this variable with some numbers:</p>
 <pre><code>## 
 ##                     GDP2020
 ## --------------- -----------
@@ -229,23 +200,48 @@
 ##             Max   173688.19
 ##         N.Valid      251.00
 ##       Pct.Valid       94.36</code></pre>
-<p>Let’s chat about these for a bit…</p>
-<p><strong><em>Back to slide deck</em></strong></p>
+<p>What we have here are the classic ‘summary statistics’ for 2020 GDPph.</p>
+<p>One thing missing - which admittedly is not very useful in this case, is the Mode, or the ‘most frequent’ value.</p>
+<pre><code>## [1] 1875.441</code></pre>
+<p>There you have it, the mode is 1875.441.</p>
+<p>One important thing to note here is that the word <strong>average</strong> is badly misused when talking about data. Specifically, the <em>mean</em>, <em>median</em>, and <em>mode</em> can all at one time or the other be referred to as the <strong>average</strong> value of a given variable. But, as you can see, they are all different numbers! The word ‘average’ is a very vague word to use in this context, so do be careful about when you use it. You should always default to using the specific term you are talking about.</p>
+<p>A few other summary statistics are calculated for 2020 GDPph below</p>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
+##    233.8   2127.5   6117.5  15162.6  18072.4 173688.2       15</code></pre>
+<pre><code>## [1] 15944.94</code></pre>
+<pre><code>## [1] 173454.4</code></pre>
+<p>What we have here now includes the range (the bottom number) and the interquartile range (above that), which are both useful measures of spread.</p>
+<p>Each of the summary numbers above has strengths and weaknesses when describing different types of data. Here, we will mainly talk about the sensistivity to outliers.</p>
+<p>Specifically, the <strong>median</strong> and <strong>interquartile range</strong> are less sensitive to outliers as measures of central tendency and range respectively than their counterparts the <strong>mean</strong> and the <strong>range</strong>. So, that’s why you commonly see median in particular used so frequently in these sorts of situations.</p>
+<p>But, what do we mean by outliers? Let’s look at this in the context of another graphical display, the <strong>box plot</strong>.</p>
 </div>
-<div id="transformations" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Transformations<a href="intro.html#transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="DBA_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
-<p>As you can see, the data is heavily skewed, or ‘squished’ towards the bottom. This makes it hard to see any patterns by eye.</p>
-<p>We can make it easier to interpret by <em>transforming the variable</em>. Here, using a logarithmic transform.</p>
-<p>Let’s run the box again:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-<p>Nice, see how the spread is easier to interpret here? Log transforms are essentially ‘inverse exponentials’, so what they do is bring down extreme high outliers.</p>
-<p>Let’s see this in some more plots:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
-<p>Compare the violin of the log transformed variable with the original:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
-<p>In fact, we can use the log transform to revisit some of our COVID data back in EXCEL…</p>
+<div id="box-plots" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Box Plots<a href="intro.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The box plot (and the other displays below) are criminally underused in my opinion. Most of us calculate a box plot at school, and then never again. But, it’s a really useful way to understand a data set.</p>
+<p>Let’s do a boxplot for the 2020 GDPph data:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>A box plot presents a lot of information very efficiently. The <strong>median</strong> is the thick horizontal, the white rectangle is bounded by the <strong>interquartile range</strong>, and outliers are represented as dots.</p>
+<p>We can see here that the data is very skewed, and there are some very significant outliers.</p>
+<p>A weakness of a box plot is that it doesn’t actually show the distribution of the data. One way to do this is to add what is called <em>jitter</em>, which actually plots the values of each case, with a ‘jitter’ to avoid overlapping identical values.</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>So, we can see here that most of the data is clustered towards the bottom of the range - i.e. very low GDPph. This is of course the same conclusion as the historgram allowed. But, the box plot also gives us plenty of other information about the variable.</p>
+<p>But, while box plots are nice, they can also obscure important facts about the distribution. Adding the jitter helps, but there are other ways to display this type of data that make the distribution more obvious.</p>
+</div>
+<div id="violin-plots" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Violin Plots<a href="intro.html#violin-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here, I’m going to give you a set of <em>even more underused</em> data displays, which can show some powerful things about variables.</p>
+<p>In order to do so, I am going to simulate some data, to make sure it has exactly the features I want to show.</p>
+<p>First, let’s create the data and use box plots to display it, such as you are already experienced with above.</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>That’s all very well, but as we know, this can obsure the distribution. So, let’s add jitter:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Well, look at that. B has a bimodal distribution…</p>
+<p>Lets look at what is called a <strong>violin plot</strong> to emphasize this:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Neat! You can see how the violin plot really emphasizes the differences in the distributions, which are totally obscured by the box plots, and only partially shown by addint the jitter.</p>
+<p>Another way to visualize this is with <strong>ridges</strong>, which basically compare the distributions of variables together:</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>These are really cool in my view. And, if you are asking me, my preference would be to combine jittered box plots, which show the basics, and emphasize the outliers and summary numbers, with ridge plots, which show a really nice visualization of the distributions of each variable.</p>
 
 </div>
 </div>
