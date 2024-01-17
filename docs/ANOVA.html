@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-16" />
+<meta name="date" content="2024-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -81,22 +81,19 @@
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots-and-ridge-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots and Ridge Plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="assoc_rel.html"><a href="assoc_rel.html#correlations-and-associations"><i class="fa fa-check"></i><b>3.1</b> Correlations and Associations</a></li>
-<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.2</b> Regression</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="assoc_rel.html"><a href="assoc_rel.html#figure-5.1-page-124-linear-regression-of-sons-on-fathers-heights"><i class="fa fa-check"></i><b>3.2.1</b> Figure 5.1 (page 124) Linear regression of sons’ on fathers’ heights</a></li>
+<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#introducing-nonlinear-associations"><i class="fa fa-check"></i><b>3.2</b> Introducing Nonlinear Associations</a></li>
+<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.3</b> Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.5" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.5</b> Visualizing Multiple Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.3</b> Multiple Regression</a></li>
-<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Visualizing Multiple Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Understanging Uncertainty</a>
+<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Beginning to Understand Uncertainty</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides"><i class="fa fa-check"></i><b>4.1</b> Back to slides…</a></li>
-<li class="chapter" data-level="4.2" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides-1"><i class="fa fa-check"></i><b>4.2</b> Back to slides…</a></li>
+<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#demonstration-sampling-from-a-known-population"><i class="fa fa-check"></i><b>4.1</b> Demonstration: Sampling from a ‘Known’ Population</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
@@ -172,7 +169,7 @@
 <p>We need to tell R that GROUP is a factor variable not a numeric one:</p>
 <p>Check it worked:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-133">Table 8.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-123">Table 8.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -310,7 +307,7 @@
 ## 2 2     ANGER       15  4.27 0.704
 ## 3 3     ANGER       15  3.07 1.03</code></pre>
 <p>And now visualize that in a boxplot:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 <p>Hmmm….</p>
 <p>Let’s run an ANOVA (we’re using the rstatix package here not Base R)</p>
 <p>Much of the following is drawn from: <a href="https://www.datanovia.com/en/lessons/anova-in-r/" class="uri">https://www.datanovia.com/en/lessons/anova-in-r/</a></p>
@@ -330,7 +327,7 @@
 ## 3 GROUP 2      3               0   -1.2    -1.96      -0.435 0.00126    
 ## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
 <p>We can actually plot these results in a really effective way:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p>This very clearly tells us that it is the Ed Sheeran group (2)that is driving these results, and there isn’t much to choose between the control group, and the ‘music’ group.</p>
 <p>Now, there are many other things that if we were doing ANOVA that we would also look to deal with - such as the various assumptions required of ANOVA, and so forth. But, they are beyond our scope in this class. Suffice to say that this has only scratched the surface of ANOVA so far.</p>
 <div id="rate-of-change-in-football-goals-per-season---bonferroni-correction" class="section level2 hasAnchor" number="8.1">
@@ -348,7 +345,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.</code></pre>
 <p>You can see here I have calculated the standard errors from the yearly goal totals (which represent that year’s underlying rate of goal occurrence), then used that to calculate the 95% Confidence Interval limits</p>
 <p>We can use these to create a nifty chart with the error bars…drawing from the code used by Spiegelhalter in his book for Figure 9.4 available on his github (linked in the code).</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
 <p>From this chart, and looking at the data itself, we can see that the 95% Intervals overlap, so it is hard to conclude that the underlying rate of goals has changed significantly year on year. Yes, even in the pandemic.</p>
 <p>Remember though, the ONS suggest that it is over-stringent to rely on error bar overlap, so we can also use z-tests to directly test the assumption that the change is zero.</p>
 <p>See: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/compendium/focusonviolentcrimeandsexualoffences/yearendingmarch2016/homicide#statistical-interpretation-of-trends-in-homicides" class="uri">https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/compendium/focusonviolentcrimeandsexualoffences/yearendingmarch2016/homicide#statistical-interpretation-of-trends-in-homicides</a></p>
@@ -364,7 +361,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.    -68 -1.50  -1.50 
 ## # ℹ 1 more variable: p2 &lt;dbl&gt;</code></pre>
 <p>Here, we can plot the p-values (2-tailed), and again we see (just like with the z-tests) that the same two seasons have significant differences.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>We can see that the 1999-2000 season, and the 2009-10 seasons have p values less than 0.05</p>
 <p>The question is are we suffering from the multiple comparisons problem? Should we correct for it? It’s hard to say actually. Of course, we are indeed running multiple tests, 29 in fact. So, the chance of a false positive is quite high, if the null was true in all cases. The Bonferroni correction would immediately reduce this, but at the cost of making none of our tests significant.</p>
 <p>Further, the basis of these corrections is that the null hypothesis is true. What if it is the alternative hypothesis (that is, the H of an effect existing) that is true? In such cases, there can of course be no false positives. Here, you are increasing the chances of a false negative by reducing the chances of a false positive. So, what are the potential costs of each of these mistakes?</p>

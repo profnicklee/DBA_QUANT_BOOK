@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-16" />
+<meta name="date" content="2024-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -81,22 +81,19 @@
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#summarizing-data-with-numbers"><i class="fa fa-check"></i><b>2.1</b> Summarizing Data with Numbers</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#box-plots"><i class="fa fa-check"></i><b>2.2</b> Box Plots</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#violin-plots-and-ridge-plots"><i class="fa fa-check"></i><b>2.3</b> Violin Plots and Ridge Plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="assoc_rel.html"><a href="assoc_rel.html"><i class="fa fa-check"></i><b>3</b> Associations and Relationships</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="assoc_rel.html"><a href="assoc_rel.html#correlations-and-associations"><i class="fa fa-check"></i><b>3.1</b> Correlations and Associations</a></li>
-<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.2</b> Regression</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="assoc_rel.html"><a href="assoc_rel.html#figure-5.1-page-124-linear-regression-of-sons-on-fathers-heights"><i class="fa fa-check"></i><b>3.2.1</b> Figure 5.1 (page 124) Linear regression of sons’ on fathers’ heights</a></li>
+<li class="chapter" data-level="3.2" data-path="assoc_rel.html"><a href="assoc_rel.html#introducing-nonlinear-associations"><i class="fa fa-check"></i><b>3.2</b> Introducing Nonlinear Associations</a></li>
+<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#regression"><i class="fa fa-check"></i><b>3.3</b> Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.5" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.5</b> Visualizing Multiple Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="assoc_rel.html"><a href="assoc_rel.html#multiple-regression"><i class="fa fa-check"></i><b>3.3</b> Multiple Regression</a></li>
-<li class="chapter" data-level="3.4" data-path="assoc_rel.html"><a href="assoc_rel.html#visualizing-multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Visualizing Multiple Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Understanging Uncertainty</a>
+<li class="chapter" data-level="4" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>4</b> Beginning to Understand Uncertainty</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides"><i class="fa fa-check"></i><b>4.1</b> Back to slides…</a></li>
-<li class="chapter" data-level="4.2" data-path="uncertainty.html"><a href="uncertainty.html#back-to-slides-1"><i class="fa fa-check"></i><b>4.2</b> Back to slides…</a></li>
+<li class="chapter" data-level="4.1" data-path="uncertainty.html"><a href="uncertainty.html#demonstration-sampling-from-a-known-population"><i class="fa fa-check"></i><b>4.1</b> Demonstration: Sampling from a ‘Known’ Population</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
@@ -173,7 +170,7 @@
 ## 5     1     5         3 0.6000000
 ## 6     0     6         3 0.5000000</code></pre>
 <p>Below, we’ll plot the results of this simulation for ease of interpretation</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 </div>
 <div id="premier-league-goals-and-the-poisson-distribution" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Premier League Goals and the Poisson Distribution<a href="probability.html#premier-league-goals-and-the-poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -204,7 +201,7 @@
 <pre><code>## [1] 1071</code></pre>
 <p>First, let’s plot the distribution of goals.</p>
 <p>If you’ve ever seen a Poisson distribution, you’ll recognise this!</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>So, this looks fairly Poisson-y, but it’s always a good idea to check this in a bit more depth. In fact, there is a formal test of this, but we don’t need to go to that depth here.</p>
 <p>First, let’s create a table of all the matches with different numbers of goals.</p>
 <pre><code>## # A tibble: 9 × 2
@@ -261,7 +258,7 @@
 <p>Remember, as you can see above, the row for ‘8’ is missing, and it goes straight to 9. So, to repeat, just take (for simplicity’s sake here) the final row of Expected Matches as meaning ‘2 games with 8 or more goals’</p>
 <p>Anyway, it’s pretty scarily close! E.g. in 21-22 there were 60 matches with 4 goals, and that is identical to the predicted amount (the difference with the predicted 60.8 from the probability distribution is likely a rounding error).</p>
 <p>Let’s plot this for the payoff:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p>So, the above was a bit of show, but what we want is the ‘go’. In other words, should we place a bet that there will be a game in the 22-23 season with 10 goals?</p>
 <p>Remember, there were 380 games in 21-22, none of which contained 10 goals. So, for ease of thinking about this, let’s make the assumption that the PL started in 2021, and there were no games before to count (in reality, we would go back to the last time 10 goals were scored and count from there, but let’s go with this in the first instance, and we’ll expand later on, promise).</p>
 <p>So, first, we need to calculate a new set of probabilities out to 10 goals.</p>
