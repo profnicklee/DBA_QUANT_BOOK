@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-17" />
+<meta name="date" content="2024-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -97,24 +97,21 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-our-previous-samples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping our Previous Samples</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#so-lets-go-back-to-the-slides.."><i class="fa fa-check"></i><b>5.1.1</b> so let’s go back to the slides…..</a></li>
-</ul></li>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a></li>
 <li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
-<li class="chapter" data-level="5.2.2" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides"><i class="fa fa-check"></i><b>5.2.2</b> Back to the slides…</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides-1"><i class="fa fa-check"></i><b>5.3.1</b> Back to the slides…</a></li>
-</ul></li>
+<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
-<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="probability.html"><a href="probability.html#update"><i class="fa fa-check"></i><b>6.2.1</b> 2023 Update</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="probability.html"><a href="probability.html#birthweights-and-the-normal-distribution-brief-example"><i class="fa fa-check"></i><b>6.3</b> Birthweights and the Normal Distribution: Brief Example</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
 <ul>
@@ -162,13 +159,13 @@
 <p>Demonstration by repeating the coin-flip simulation</p>
 <p>Remember, this is another random process, so results will differ each time slightly</p>
 <pre><code>##   Heads Trial Cum_Heads Pct_Heads
-## 1     0     1         0 0.0000000
-## 2     0     2         0 0.0000000
-## 3     1     3         1 0.3333333
-## 4     0     4         1 0.2500000
-## 5     1     5         2 0.4000000
-## 6     0     6         2 0.3333333</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+## 1     1     1         1 1.0000000
+## 2     1     2         2 1.0000000
+## 3     1     3         3 1.0000000
+## 4     0     4         3 0.7500000
+## 5     1     5         4 0.8000000
+## 6     0     6         4 0.6666667</code></pre>
+<p><img src="DBA_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 </div>
 <div id="the-distribution-of-sample-means-and-the-central-limit-theorem" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> The Distribution of Sample Means, and the Central Limit Theorem<a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -185,7 +182,7 @@
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    5600    7500    9400    9400   11300   13200</code></pre>
 <p>Let’s plot the distribution, and if we do so we will find that it is essentially uniform - every value occurs once in the population.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p>Now, what I am going to do is take a sample of 2 from that population, and take the mean</p>
 <p>I do this using a ‘combination’ operation</p>
 <pre><code>## [1] &quot;One Random Combination of 2 of the 20 Income Values&quot;</code></pre>
@@ -412,11 +409,11 @@
 ## 5 5600 7600  6600
 ## 6 5600 8000  6800</code></pre>
 <p>OK, so here is the kicker. Let’s plot a histogram of these means:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 <p>Well well well!</p>
 <p>Even though the original population was a completely uniform distribution with a mean of 9400, the distribution of all of the sample means looks quite a lot like a gaussian / normal distribution!</p>
 <p>Let’s overlay one on it as well to make the point…</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <p>Further, let’s take the mean of those means…</p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    5800    8200    9400    9400   10600   13000</code></pre>
@@ -438,7 +435,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.</code></pre>
 <p>You can see here I have calculated the standard errors from the yearly goal totals (which represent that year’s underlying rate of goal occurrence), then used that to calculate the 95% Confidence Interval limits</p>
 <p>We can use these to create a nifty chart with the error bars…drawing from the code used by Spiegelhalter in his book for Figure 9.4 available on his github (linked in the code).</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 <p>From this chart, and looking at the data itself, we can see that the 95% Intervals overlap, so it is hard to conclude that the underlying rate of goals has changed significantly year on year. Yes, even in the pandemic.</p>
 <p>The closest we get in fact is between the 2008-2009 and 2009-10 season. Interestingly, this corresponds to when Man City were bought, and it is evident that the top teams scored a lot more that year.</p>
 <p>This is a stringent test however, and the ONS suggest that you can also test the change by using a Z-test, which <em>directly tests the hypothesis</em> that the change is zero, using the assumption that the events are Poisson distributed (we agree) and also that when the number of events are large (generally over 20), we can use an approximation to the normal distribution.</p>
@@ -457,7 +454,7 @@
 ## 6 2000-01   380   992  2.61  31.5      930.     1054.    -68 -1.50</code></pre>
 <p>The ‘Z’ column is what we are interested in, and we are looking for a z-value greater than + or - 1.96 for a 95% test (analogous to the 95% intervals we’ve been dealing with so far).</p>
 <p>A simple way to visualize this is to plot the z-values for each season, and include ‘control lines’ which represent the + or -1.96 z value, beyond which we consider there to be a significant difference</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 <p>So, we can see that the 1999-2000 season, and the 2009-10 seasons exceed our z values, making them significantly different from the seasons before.</p>
 <p>Of course, we could do z-tests for any combination of two seasons, if we had a good reason. You can see on the ONS website they do this for different years’ murder rates to make a point.</p>
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-17" />
+<meta name="date" content="2024-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -97,24 +97,21 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-our-previous-samples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping our Previous Samples</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#so-lets-go-back-to-the-slides.."><i class="fa fa-check"></i><b>5.1.1</b> so let’s go back to the slides…..</a></li>
-</ul></li>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a></li>
 <li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
-<li class="chapter" data-level="5.2.2" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides"><i class="fa fa-check"></i><b>5.2.2</b> Back to the slides…</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="bootstrap.html"><a href="bootstrap.html#back-to-the-slides-1"><i class="fa fa-check"></i><b>5.3.1</b> Back to the slides…</a></li>
-</ul></li>
+<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
-<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="probability.html"><a href="probability.html#update"><i class="fa fa-check"></i><b>6.2.1</b> 2023 Update</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="probability.html"><a href="probability.html#birthweights-and-the-normal-distribution-brief-example"><i class="fa fa-check"></i><b>6.3</b> Birthweights and the Normal Distribution: Brief Example</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
 <ul>
@@ -187,54 +184,54 @@
 <pre><code>## # A tibble: 10 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   343   19.9   19.1          14.5 
-##  2   137   73.7   14.1           2.99
-##  3     5   69.4   16.0           4.06
-##  4    65   42.3    8.41          7.46
-##  5   134   71.2   25.2           6.00
-##  6   311   33.9   24.4          11.4 
-##  7    45   22.6   13.7          13.5 
-##  8   219   71.0   15.3           4.08
-##  9   264   10.3   26.9          17.1 
-## 10   314   57.1    3.29          4.63</code></pre>
+##  1   425  21.8    15.5          13.4 
+##  2    28  45.2     2.14          6.59
+##  3   323  56.4    17.5           6.81
+##  4    24  18.4    23.4          16.5 
+##  5   204  63.2    20.5           5.56
+##  6    40  45.8     4.72          7.04
+##  7   207  67.1     5.82          2.55
+##  8   136  28.4    20.2          13.0 
+##  9    27  60.5     3.98          3.22
+## 10   480   7.58   29.6          18.1</code></pre>
 <p>Next, let’s look at the relevant statistics (mean and median) and distribution of this sample of 10:</p>
-<pre><code>## [1] 15.62821</code></pre>
-<pre><code>## [1] 16.62447</code></pre>
+<pre><code>## [1] 16.51051</code></pre>
+<pre><code>## [1] 14.34663</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <p>We can do the same for successively larger samples, say 50, and 200:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   286   25.7   23.3          13.6 
-##  2    65   42.3    8.41          7.46
-##  3    33   27.3   16.9          12.2 
-##  4   319   15.5   19.5          15.2 
-##  5   254   34.2   24.4          13.2 
-##  6    57   21.5   23.0          15.0 
-##  7   467   74.5   22.5           4.30
-##  8   461   71.4   12.8           3.26
-##  9   117   11.6    6.35         14.4 
-## 10    22   18.5   26.4          16.0 
+##  1   437  18.1     10.8         13.3 
+##  2   200  12.9     25.2         16.3 
+##  3   492  68.9     10.5          3.11
+##  4    85   3.71    21.5         17.9 
+##  5   225  59.5     18.8          5.69
+##  6    41  31.5     22.2         13.2 
+##  7   182  20.1     11.9         12.7 
+##  8   378  13.4     29.7         17.2 
+##  9   122  46.6     26.9         10.5 
+## 10   119  27.7     18.6         11.5 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 19.1987</code></pre>
-<pre><code>## [1] 16.65742</code></pre>
+<pre><code>## [1] 17.25335</code></pre>
+<pre><code>## [1] 16.3807</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <pre><code>## # A tibble: 200 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   146  71.5    21.6           3.67
-##  2   306  26.2     7.44         12.4 
-##  3    19  39.7    12.7           9.75
-##  4    50  21.1    18.9          14.8 
-##  5   263  67.1     8.48          3.12
-##  6   439  63.8     9.91          3.40
-##  7    32  61.1    27.8           7.72
-##  8    66   1.12   19.6          17.7 
-##  9   358  58.0    16.4           5.72
-## 10   423  71.9    19.4           4.11
+##  1    21   28.5   14.9          11.7 
+##  2   460   31.4    8.18          9.79
+##  3   400   61.0    7.65          3.60
+##  4   370   48.5    5.07          6.51
+##  5    97   21.3   12.9          13.8 
+##  6   434   36.3    8.25          9.78
+##  7   289   49.0    3.23          5.84
+##  8   378   13.4   29.7          17.2 
+##  9    89   28.1   14.7          12.8 
+## 10   203   20.6   15.4          14.6 
 ## # ℹ 190 more rows</code></pre>
-<pre><code>## [1] 16.04703</code></pre>
-<pre><code>## [1] 16.04703</code></pre>
+<pre><code>## [1] 14.98162</code></pre>
+<pre><code>## [1] 14.98162</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <p>As you can see, the distributions of the smaller samples are more peaky and bumpy, because they are very sensitive to individual data points. As the sample gets larger, it starts to look more like the population right?</p>
 <p>We can complete our table now in the slides of the sample statistics (mean and median) showing that in general, as we get closer to the population size, the statistics generally get closer too. To do so, let’s go <strong>back to the slides…</strong></p>
