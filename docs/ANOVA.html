@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 ANOVA and Issues with Significance | WBS DBA: Introduction to Quantitative Analysis</title>
+  <title>Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis</title>
   <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 ANOVA and Issues with Significance | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta property="og:title" content="Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 ANOVA and Issues with Significance | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta name="twitter:title" content="Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
   
   <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-20" />
+<meta name="date" content="2024-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistics.html"/>
-<link rel="next" href="H-testing.html"/>
+<link rel="prev" href="H-testing.html"/>
+<link rel="next" href="Issues.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -115,20 +115,20 @@
 </ul></li>
 <li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>7.1</b> The Law of Large Numbers</a></li>
-<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.2</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
-<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>7.3</b> Rate of Change in Football Goals per Season</a></li>
+<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.1</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#demonstrating-confidence-intervals"><i class="fa fa-check"></i><b>7.2</b> Demonstrating Confidence Intervals</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>8</b> ANOVA and Issues with Significance</a>
+<li class="chapter" data-level="8" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>8</b> Classical Statistical Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="ANOVA.html"><a href="ANOVA.html#rate-of-change-in-football-goals-per-season---bonferroni-correction"><i class="fa fa-check"></i><b>8.1</b> Rate of Change in Football Goals per Season - Bonferroni Correction?</a></li>
-<li class="chapter" data-level="8.2" data-path="ANOVA.html"><a href="ANOVA.html#statistical-power"><i class="fa fa-check"></i><b>8.2</b> Statistical Power</a></li>
+<li class="chapter" data-level="8.1" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>8.1</b> Correlation Significance Tests</a></li>
+<li class="chapter" data-level="8.2" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>8.2</b> Regression Significance Tests</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>9</b> Classical Statistical Hypothesis Testing</a>
+<li class="chapter" data-level="9" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a></li>
+<li class="chapter" data-level="10" data-path="Issues.html"><a href="Issues.html"><i class="fa fa-check"></i><b>10</b> Issues with Significance Testing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="H-testing.html"><a href="H-testing.html#premier-league-goals-and-the-poisson-distribution-1"><i class="fa fa-check"></i><b>9.1</b> Premier League Goals and the Poisson Distribution</a></li>
-<li class="chapter" data-level="9.2" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>9.2</b> Correlation Significance Tests</a></li>
-<li class="chapter" data-level="9.3" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>9.3</b> Regression Significance Tests</a></li>
+<li class="chapter" data-level="10.1" data-path="Issues.html"><a href="Issues.html#more-on-the-multiple-comparisons-problem"><i class="fa fa-check"></i><b>10.1</b> More on the Multiple Comparisons Problem</a></li>
+<li class="chapter" data-level="10.2" data-path="Issues.html"><a href="Issues.html#the-bonferroni-correction-rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>10.2</b> The Bonferroni Correction: Rate of Change in Football Goals per Season</a></li>
+<li class="chapter" data-level="10.3" data-path="Issues.html"><a href="Issues.html#statistical-power-brief-demonstration"><i class="fa fa-check"></i><b>10.3</b> Statistical Power: Brief Demonstration</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -151,171 +151,42 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ANOVA" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> ANOVA and Issues with Significance<a href="ANOVA.html#ANOVA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Here, I’ll demonstrate the basic application of ANOVA on the simple 3-group case of the Ed Sheeran Study:</p>
+<div id="ANOVA" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> ANOVA<a href="ANOVA.html#ANOVA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, I’ll demonstrate the basic application of ANOVA on the simple 3-group case of the Ed Sheeran Study, and go from there to introduce some classic ‘concerns’ with the statistical hypothesis testing methodology.</p>
+<pre><code>##        ID     GROUP      ANGER      
+##  Min.   : 1   1:15   Min.   :1.000  
+##  1st Qu.:12   2:15   1st Qu.:2.000  
+##  Median :23   3:15   Median :3.000  
+##  Mean   :23          Mean   :3.222  
+##  3rd Qu.:34          3rd Qu.:4.000  
+##  Max.   :45          Max.   :5.000</code></pre>
 <pre><code>## # A tibble: 6 × 3
 ##      ID GROUP ANGER
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     1     1     2
-## 2     2     2     5
-## 3     3     1     2
-## 4     4     3     3
-## 5     5     2     4
-## 6     6     3     2</code></pre>
-<p>We need to tell R that GROUP is a factor variable not a numeric one:</p>
-<p>Check it worked:</p>
-<table>
-<caption><span id="tab:unnamed-chunk-115">Table 8.1: </span>Data summary</caption>
-<tbody>
-<tr class="odd">
-<td align="left">Name</td>
-<td align="left">ED</td>
-</tr>
-<tr class="even">
-<td align="left">Number of rows</td>
-<td align="left">45</td>
-</tr>
-<tr class="odd">
-<td align="left">Number of columns</td>
-<td align="left">3</td>
-</tr>
-<tr class="even">
-<td align="left">_______________________</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Column type frequency:</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">factor</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">numeric</td>
-<td align="left">2</td>
-</tr>
-<tr class="even">
-<td align="left">________________________</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Group variables</td>
-<td align="left">None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: factor</strong></p>
-<table>
-<colgroup>
-<col width="18%" />
-<col width="13%" />
-<col width="18%" />
-<col width="10%" />
-<col width="12%" />
-<col width="26%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">skim_variable</th>
-<th align="right">n_missing</th>
-<th align="right">complete_rate</th>
-<th align="left">ordered</th>
-<th align="right">n_unique</th>
-<th align="left">top_counts</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">GROUP</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="left">FALSE</td>
-<td align="right">3</td>
-<td align="left">1: 15, 2: 15, 3: 15</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: numeric</strong></p>
-<table style="width:100%;">
-<colgroup>
-<col width="18%" />
-<col width="13%" />
-<col width="18%" />
-<col width="7%" />
-<col width="7%" />
-<col width="3%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="6%" />
-<col width="7%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">skim_variable</th>
-<th align="right">n_missing</th>
-<th align="right">complete_rate</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
-<th align="right">p0</th>
-<th align="right">p25</th>
-<th align="right">p50</th>
-<th align="right">p75</th>
-<th align="right">p100</th>
-<th align="left">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">ID</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">23.00</td>
-<td align="right">13.13</td>
-<td align="right">1</td>
-<td align="right">12</td>
-<td align="right">23</td>
-<td align="right">34</td>
-<td align="right">45</td>
-<td align="left">▇▇▇▇▇</td>
-</tr>
-<tr class="even">
-<td align="left">ANGER</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">3.22</td>
-<td align="right">1.17</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">3</td>
-<td align="right">4</td>
-<td align="right">5</td>
-<td align="left">▁▇▇▆▅</td>
-</tr>
-</tbody>
-</table>
-<p>Let’s create a quick table of the group means</p>
+##   &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;
+## 1     1 1         2
+## 2     2 2         5
+## 3     3 1         2
+## 4     4 3         3
+## 5     5 2         4
+## 6     6 3         2</code></pre>
+<p>Let’s create a quick table of the group means, and visualize it with a simple boxplot of the groups.</p>
 <pre><code>## # A tibble: 3 × 5
 ##   GROUP variable     n  mean    sd
 ##   &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 1     ANGER       15  2.33 0.816
 ## 2 2     ANGER       15  4.27 0.704
 ## 3 3     ANGER       15  3.07 1.03</code></pre>
-<p>And now visualize that in a boxplot:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 <p>Hmmm….</p>
-<p>Let’s run an ANOVA (we’re using the rstatix package here not Base R)</p>
-<p>Much of the following is drawn from: <a href="https://www.datanovia.com/en/lessons/anova-in-r/" class="uri">https://www.datanovia.com/en/lessons/anova-in-r/</a></p>
+<p>Let’s run an ANOVA</p>
 <pre><code>## ANOVA Table (type II tests)
 ## 
 ##   Effect DFn DFd      F        p p&lt;.05   ges
 ## 1  GROUP   2  42 19.235 1.17e-06     * 0.478</code></pre>
-<p>Results here suggest there is a significant effect (p-value is very small) rstatix also gives us an ‘effect size’ measure (ges, generalized eta-squared) which is also useful to us and suggests the effect is quite large. This can be interpreted similarly to a regression coefficient (which is also an effect size measure), and is the amount of variance in the dependent variable (Anger) that is explained by group membership.</p>
-<p>However, ANOVA only tests the ‘general effect’ of the treatment / group. We don’t know whether this is because of the difference between all of the groups, or only some. E.g., is it that there is an effect of music in general (i.e. between Control and Ed, and Control and Music, but not between Ed and Music), or that Ed specifically is anger-inducing (in whcih case we would see an effect between Ed and Music, and Ed and Control, and not between Music and Control).</p>
-<p>We can investigate this using Post-Hoc tests, which compare the individual groups. This has the potential for a multiple comparisons problem, which we will need to deal with.</p>
-<p>Let’s take a look back to the slide deck…</p>
+<p>Results here suggest there is a significant effect (p-value is very small). We also have an <em>effect size</em> measure (‘ges’, or generalized eta-squared) which is very useful to us, and suggests the effect is quite large. This can be interpreted similarly to a regression coefficient (which is also an effect size measure), and is the amount of variance in the dependent variable (Anger) that is explained by group membership.</p>
+<p>However, ANOVA only tests the <em>general effect</em> of the treatment / group. We don’t know whether this is because of the difference between <strong>all of the groups</strong>, or only <strong>some</strong>. E.g., is it that there is an effect of music in general (i.e. between Control and Ed, and Control and Music, but not between Ed and Music), or that Ed specifically is anger-inducing (in whcih case we would see an effect between Ed and Music, and Ed and Control, and not between Music and Control).</p>
+<p>We can investigate this using <em>Post-Hoc tests</em>, which compare the difference between each pair of groups.</p>
 <pre><code>## # A tibble: 3 × 9
 ##   term  group1 group2 null.value estimate conf.low conf.high       p.adj
 ## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -324,77 +195,20 @@
 ## 3 GROUP 2      3               0   -1.2    -1.96      -0.435 0.00126    
 ## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
 <p>We can actually plot these results in a really effective way:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
-<p>This very clearly tells us that it is the Ed Sheeran group (2)that is driving these results, and there isn’t much to choose between the control group, and the ‘music’ group.</p>
-<p>Now, there are many other things that if we were doing ANOVA that we would also look to deal with - such as the various assumptions required of ANOVA, and so forth. But, they are beyond our scope in this class. Suffice to say that this has only scratched the surface of ANOVA so far.</p>
-<div id="rate-of-change-in-football-goals-per-season---bonferroni-correction" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Rate of Change in Football Goals per Season - Bonferroni Correction?<a href="ANOVA.html#rate-of-change-in-football-goals-per-season---bonferroni-correction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here, I’m using data from <a href="https://www.footballhistory.org/league/premier-league-statistics.html" class="uri">https://www.footballhistory.org/league/premier-league-statistics.html</a></p>
-<p>I hand-entered this into a spreadsheet, and calculated the additional stuff.</p>
-<pre><code>## # A tibble: 6 × 7
-##   Season  Games Goals   GPG    SE Lower95CI Upper95CI
-##   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 1995-96   380   988  2.6   31.4      926.     1050.
-## 2 1996-97   380   970  2.55  31.1      909.     1031.
-## 3 1997-98   380  1019  2.68  31.9      956.     1082.
-## 4 1998-99   380   959  2.52  31.0      898.     1020.
-## 5 1999-00   380  1060  2.79  32.6      996.     1124.
-## 6 2000-01   380   992  2.61  31.5      930.     1054.</code></pre>
-<p>You can see here I have calculated the standard errors from the yearly goal totals (which represent that year’s underlying rate of goal occurrence), then used that to calculate the 95% Confidence Interval limits</p>
-<p>We can use these to create a nifty chart with the error bars…drawing from the code used by Spiegelhalter in his book for Figure 9.4 available on his github (linked in the code).</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
-<p>From this chart, and looking at the data itself, we can see that the 95% Intervals overlap, so it is hard to conclude that the underlying rate of goals has changed significantly year on year. Yes, even in the pandemic.</p>
-<p>Remember though, the ONS suggest that it is over-stringent to rely on error bar overlap, so we can also use z-tests to directly test the assumption that the change is zero.</p>
-<p>See: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/compendium/focusonviolentcrimeandsexualoffences/yearendingmarch2016/homicide#statistical-interpretation-of-trends-in-homicides" class="uri">https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/compendium/focusonviolentcrimeandsexualoffences/yearendingmarch2016/homicide#statistical-interpretation-of-trends-in-homicides</a></p>
-<p>Rather than just use a z-value cutoff of 1.96 as we did last time, in the next data file, I have calculated the p-value (2 tailed as we do not hypothesize a direction for the difference) for the z-scores for the difference between each season, year-on-year.</p>
-<pre><code>## # A tibble: 6 × 11
-##   Season  Games Goals   GPG    SE Lower95CI Upper95CI Change      Z negged
-##   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 1995-96   380   988  2.6   31.4      926.     1050.     NA NA     NA    
-## 2 1996-97   380   970  2.55  31.1      909.     1031.    -18 -0.407 -0.407
-## 3 1997-98   380  1019  2.68  31.9      956.     1082.     49  1.10  -1.10 
-## 4 1998-99   380   959  2.52  31.0      898.     1020.    -60 -1.35  -1.35 
-## 5 1999-00   380  1060  2.79  32.6      996.     1124.    101  2.25  -2.25 
-## 6 2000-01   380   992  2.61  31.5      930.     1054.    -68 -1.50  -1.50 
-## # ℹ 1 more variable: p2 &lt;dbl&gt;</code></pre>
-<p>Here, we can plot the p-values (2-tailed), and again we see (just like with the z-tests) that the same two seasons have significant differences.</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
-<p>We can see that the 1999-2000 season, and the 2009-10 seasons have p values less than 0.05</p>
-<p>The question is are we suffering from the multiple comparisons problem? Should we correct for it? It’s hard to say actually. Of course, we are indeed running multiple tests, 29 in fact. So, the chance of a false positive is quite high, if the null was true in all cases. The Bonferroni correction would immediately reduce this, but at the cost of making none of our tests significant.</p>
-<p>Further, the basis of these corrections is that the null hypothesis is true. What if it is the alternative hypothesis (that is, the H of an effect existing) that is true? In such cases, there can of course be no false positives. Here, you are increasing the chances of a false negative by reducing the chances of a false positive. So, what are the potential costs of each of these mistakes?</p>
-<p>For example, Thomas Perneger’s 1998 paper in the BMJ is scathing about the Bonferroni adjustment. Take a look at <a href="https://www.bmj.com/content/316/7139/1236.full" class="uri">https://www.bmj.com/content/316/7139/1236.full</a></p>
-<p>Mind you, I am not saying that’s the final word, just that there are multiple perspectives on the issues!</p>
-<p>It’s never as simple as it seems when making statistical decisions, is it?</p>
-</div>
-<div id="statistical-power" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Statistical Power<a href="ANOVA.html#statistical-power" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Different types of analysis and research design require different types of power calculation. In R, we can use the pwr package to calculate quite a few.</p>
-<p>Let’s calculate the required sample size for the Ed Sheeran study we conducted earlier. Really, we should have done this before collecting data, but it’s a nice example to do it post hoc.</p>
-<p>We don’t need the data, just the parameters of the experiment and analysis design.</p>
-<p>So, we had 3 groups, and used ANOVA</p>
-<p>Let’s set a significance of 0.05, a required power of 0.8, and assume the effect size is moderate (say 0.25)</p>
-<pre><code>## 
-##      Balanced one-way analysis of variance power calculation 
-## 
-##               k = 3
-##               n = 52.3966
-##               f = 0.25
-##       sig.level = 0.05
-##           power = 0.8
-## 
-## NOTE: n is number in each group</code></pre>
-<p>So, we really wanted to have around 50 in each group to have an 80% chance of detecting a moderate effect presuming the null was true.</p>
-<p>You can see that my study (with only 15 in each group) was rather underpowered. However, if I had increased the effect size in the calculation to 0.5 (close to what the experiment suggested) this would have given me a result for n closer to what I actually used. However, you’d have to be VERY confident in the size of your likely effect to actually do that I think.</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p>This very clearly tells us that it is the <em>Ed Sheeran group (2)</em> that is driving these results, and there isn’t much to choose between the control group, and the ‘music’ group.</p>
+<p>However, this type of post-hoc analysis has the potential for what is known as a <em>multiple comparisons problem</em>, which we might need to deal with.</p>
+<p>Let’s take a look <em>back in the slide deck…</em></p>
+<p>Remember, there are many other things that if we were doing ANOVA that we would also look to deal with - such as the various assumptions required of ANOVA, and so forth. But, they are beyond our scope in this class. Suffice to say that this has only scratched the surface of ANOVA so far.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="H-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="H-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Issues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -425,7 +239,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-ANOVA.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-ANOVA.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -448,6 +262,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

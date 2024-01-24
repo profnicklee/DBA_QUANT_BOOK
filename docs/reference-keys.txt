@@ -1,5 +1,4 @@
 tab:unnamed-chunk-67
-tab:unnamed-chunk-115
 introduction-and-orientation
 intro
 summarizing-data-with-numbers
@@ -24,13 +23,13 @@ premier-league-goals-and-the-poisson-distribution
 update
 birthweights-and-the-normal-distribution-brief-example
 statistics
-the-law-of-large-numbers
 the-distribution-of-sample-means-and-the-central-limit-theorem
-rate-of-change-in-football-goals-per-season
-ANOVA
-rate-of-change-in-football-goals-per-season---bonferroni-correction
-statistical-power
+demonstrating-confidence-intervals
 H-testing
-premier-league-goals-and-the-poisson-distribution-1
 correlation-significance-tests
 regression-significance-tests
+ANOVA
+Issues
+more-on-the-multiple-comparisons-problem
+the-bonferroni-correction-rate-of-change-in-football-goals-per-season
+statistical-power-brief-demonstration
