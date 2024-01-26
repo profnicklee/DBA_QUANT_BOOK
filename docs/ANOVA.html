@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis</title>
+  <title>Chapter 10 ANOVA | WBS DBA: Introduction to Quantitative Analysis</title>
   <meta name="description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta property="og:title" content="Chapter 10 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
+  <meta name="twitter:title" content="Chapter 10 ANOVA | WBS DBA: Introduction to Quantitative Analysis" />
   
   <meta name="twitter:description" content="This book contains the examples and notes for the WBS DBA Quant Methods Course. It is based on the Bookdown Demo written by Hui. The output format for this example is bookdown::gitbook." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2024-01-24" />
+<meta name="date" content="2024-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,33 +102,40 @@
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="bootstrap.html"><a href="bootstrap.html#t-tests-for-means"><i class="fa fa-check"></i><b>5.3</b> T-Tests for Means</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> Introduction to Probability</a>
+<li class="chapter" data-level="6" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>6</b> T-Tests for Means</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>6.1</b> Simulating Coin Flips</a></li>
-<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>6.2</b> Premier League Goals and the Poisson Distribution</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="probability.html"><a href="probability.html#update"><i class="fa fa-check"></i><b>6.2.1</b> 2023 Update</a></li>
+<li class="chapter" data-level="6.1" data-path="t-test.html"><a href="t-test.html#independent-sample-t-tests"><i class="fa fa-check"></i><b>6.1</b> Independent Sample T-Tests</a></li>
+<li class="chapter" data-level="6.2" data-path="t-test.html"><a href="t-test.html#paired-sample-t-tests"><i class="fa fa-check"></i><b>6.2</b> Paired-Sample T-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="probability.html"><a href="probability.html#birthweights-and-the-normal-distribution-brief-example"><i class="fa fa-check"></i><b>6.3</b> Birthweights and the Normal Distribution: Brief Example</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a>
+<li class="chapter" data-level="7" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>7</b> Introduction to Probability</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>7.1</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
-<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#demonstrating-confidence-intervals"><i class="fa fa-check"></i><b>7.2</b> Demonstrating Confidence Intervals</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>8</b> Classical Statistical Hypothesis Testing</a>
+<li class="chapter" data-level="7.1" data-path="probability.html"><a href="probability.html#simulating-coin-flips"><i class="fa fa-check"></i><b>7.1</b> Simulating Coin Flips</a></li>
+<li class="chapter" data-level="7.2" data-path="probability.html"><a href="probability.html#premier-league-goals-and-the-poisson-distribution"><i class="fa fa-check"></i><b>7.2</b> Premier League Goals and the Poisson Distribution</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>8.1</b> Correlation Significance Tests</a></li>
-<li class="chapter" data-level="8.2" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>8.2</b> Regression Significance Tests</a></li>
+<li class="chapter" data-level="7.2.1" data-path="probability.html"><a href="probability.html#update"><i class="fa fa-check"></i><b>7.2.1</b> 2023 Update</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a></li>
-<li class="chapter" data-level="10" data-path="Issues.html"><a href="Issues.html"><i class="fa fa-check"></i><b>10</b> Issues with Significance Testing</a>
+<li class="chapter" data-level="7.3" data-path="probability.html"><a href="probability.html#birth-weight-and-the-normal-distribution-brief-example"><i class="fa fa-check"></i><b>7.3</b> Birth Weight and the Normal Distribution: Brief Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> Introduction to Statistics</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="Issues.html"><a href="Issues.html#more-on-the-multiple-comparisons-problem"><i class="fa fa-check"></i><b>10.1</b> More on the Multiple Comparisons Problem</a></li>
-<li class="chapter" data-level="10.2" data-path="Issues.html"><a href="Issues.html#the-bonferroni-correction-rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>10.2</b> The Bonferroni Correction: Rate of Change in Football Goals per Season</a></li>
-<li class="chapter" data-level="10.3" data-path="Issues.html"><a href="Issues.html#statistical-power-brief-demonstration"><i class="fa fa-check"></i><b>10.3</b> Statistical Power: Brief Demonstration</a></li>
+<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#the-distribution-of-sample-means-and-the-central-limit-theorem"><i class="fa fa-check"></i><b>8.1</b> The Distribution of Sample Means, and the Central Limit Theorem</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#conf"><i class="fa fa-check"></i><b>8.2</b> Demonstrating Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="H-testing.html"><a href="H-testing.html"><i class="fa fa-check"></i><b>9</b> Classical Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="H-testing.html"><a href="H-testing.html#correlation-significance-tests"><i class="fa fa-check"></i><b>9.1</b> Correlation Significance Tests</a></li>
+<li class="chapter" data-level="9.2" data-path="H-testing.html"><a href="H-testing.html#regression-significance-tests"><i class="fa fa-check"></i><b>9.2</b> Regression Significance Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ANOVA.html"><a href="ANOVA.html"><i class="fa fa-check"></i><b>10</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ANOVA.html"><a href="ANOVA.html#post-hoc-testing"><i class="fa fa-check"></i><b>10.1</b> Post-Hoc Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Issues.html"><a href="Issues.html"><i class="fa fa-check"></i><b>11</b> Issues with Significance Testing</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Issues.html"><a href="Issues.html#more-on-the-multiple-comparisons-problem"><i class="fa fa-check"></i><b>11.1</b> More on the Multiple Comparisons Problem</a></li>
+<li class="chapter" data-level="11.2" data-path="Issues.html"><a href="Issues.html#the-bonferroni-correction-rate-of-change-in-football-goals-per-season"><i class="fa fa-check"></i><b>11.2</b> The Bonferroni Correction: Rate of Change in Football Goals per Season</a></li>
+<li class="chapter" data-level="11.3" data-path="Issues.html"><a href="Issues.html#statistical-power-brief-demonstration"><i class="fa fa-check"></i><b>11.3</b> Statistical Power: Brief Demonstration</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -151,9 +158,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ANOVA" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> ANOVA<a href="ANOVA.html#ANOVA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this chapter, I’ll demonstrate the basic application of ANOVA on the simple 3-group case of the Ed Sheeran Study, and go from there to introduce some classic ‘concerns’ with the statistical hypothesis testing methodology.</p>
+<div id="ANOVA" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> ANOVA<a href="ANOVA.html#ANOVA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This Chapter provides analysis and examples related to the first part of Lecture 11.</p>
+<p>Here, I’ll demonstrate the basic application of ANOVA on the simple 3-group case of the Ed Sheeran Study, and go from there to introduce some classic ‘concerns’ with the statistical hypothesis testing methodology.</p>
 <pre><code>##        ID     GROUP      ANGER      
 ##  Min.   : 1   1:15   Min.   :1.000  
 ##  1st Qu.:12   2:15   1st Qu.:2.000  
@@ -177,16 +185,18 @@
 ## 1 1     ANGER       15  2.33 0.816
 ## 2 2     ANGER       15  4.27 0.704
 ## 3 3     ANGER       15  3.07 1.03</code></pre>
-<p><img src="DBA_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
-<p>Hmmm….</p>
-<p>Let’s run an ANOVA</p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+<p>Interesting picture. Group 1 is the control group, Group 2 is those who heard Ed Sheeran, Group 3 is those who heard other music. This is what we might call ‘model-free’ analysis. We are just looking at the data to see if intuitively it looks like we expect it to.</p>
+<p>Let’s run an ANOVA now, which places a statistical model on it, and tests whether or not the data supports the model.</p>
 <pre><code>## ANOVA Table (type II tests)
 ## 
 ##   Effect DFn DFd      F        p p&lt;.05   ges
 ## 1  GROUP   2  42 19.235 1.17e-06     * 0.478</code></pre>
 <p>Results here suggest there is a significant effect (p-value is very small). We also have an <em>effect size</em> measure (‘ges’, or generalized eta-squared) which is very useful to us, and suggests the effect is quite large. This can be interpreted similarly to a regression coefficient (which is also an effect size measure), and is the amount of variance in the dependent variable (Anger) that is explained by group membership.</p>
-<p>However, ANOVA only tests the <em>general effect</em> of the treatment / group. We don’t know whether this is because of the difference between <strong>all of the groups</strong>, or only <strong>some</strong>. E.g., is it that there is an effect of music in general (i.e. between Control and Ed, and Control and Music, but not between Ed and Music), or that Ed specifically is anger-inducing (in whcih case we would see an effect between Ed and Music, and Ed and Control, and not between Music and Control).</p>
-<p>We can investigate this using <em>Post-Hoc tests</em>, which compare the difference between each pair of groups.</p>
+<p>However, ANOVA only tests the <em>general effect</em> of the treatment / group. We don’t know whether this is because of the difference between <strong>all of the groups</strong>, or only <strong>some</strong>. E.g., is it that there is an effect of music in general (i.e. between Control and Ed, and Control and Music, but not between Ed and Music), or that Ed specifically is anger-inducing (in which case we would see an effect between Ed and Music, and Ed and Control, and not between Music and Control).</p>
+<div id="post-hoc-testing" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Post-Hoc Testing<a href="ANOVA.html#post-hoc-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can investigate this using <strong>post-hoc tests</strong>, which compare the difference between each pair of groups. There are many different types of post-hoc test for ANOVA, but the most typical one to use is the Tukey’s test, which is what we will do here.</p>
 <pre><code>## # A tibble: 3 × 9
 ##   term  group1 group2 null.value estimate conf.low conf.high       p.adj
 ## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -195,12 +205,13 @@
 ## 3 GROUP 2      3               0   -1.2    -1.96      -0.435 0.00126    
 ## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
 <p>We can actually plot these results in a really effective way:</p>
-<p><img src="DBA_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="DBA_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>This very clearly tells us that it is the <em>Ed Sheeran group (2)</em> that is driving these results, and there isn’t much to choose between the control group, and the ‘music’ group.</p>
 <p>However, this type of post-hoc analysis has the potential for what is known as a <em>multiple comparisons problem</em>, which we might need to deal with.</p>
-<p>Let’s take a look <em>back in the slide deck…</em></p>
+<p>Let’s take a look <strong>back in the slide deck…</strong></p>
 <p>Remember, there are many other things that if we were doing ANOVA that we would also look to deal with - such as the various assumptions required of ANOVA, and so forth. But, they are beyond our scope in this class. Suffice to say that this has only scratched the surface of ANOVA so far.</p>
 
+</div>
 </div>
             </section>
 
@@ -239,7 +250,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-ANOVA.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-ANOVA.Rmd",
 "text": "Edit"
 },
 "history": {

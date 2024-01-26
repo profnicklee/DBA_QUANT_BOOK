@@ -14,7 +14,7 @@ description: "This book contains the examples and notes for the WBS DBA Quant Me
 
 # Introduction and Orientation
 
-This is an online course book, designed for students on the Warwick Business School DBA Programme, for the module 'Introduction to Quantitative Methods', taught by Professor Nick Lee.
+This is an online course book, designed for students on the Warwick Business School DBA Programme, who are taking the module 'Introduction to Quantitative Methods', taught by Professor Nick Lee.
 
 The module is more accurately titled 'Learning from Data (and) Science', and consists of a set of in-person lectures, linked with these examples and additional expositions.
 
@@ -25,6 +25,9 @@ This book is written in **Markdown**, using R and the **bookdown** package, and 
 
 This book is essentially a 'live' document, meaning that it is finalised for each year just before the module runs, but then modified for future runnings.
 
-The current year is 2024, and the book is currently *in development, not final.*
+The current year is 2024, and the book is currently *final for 2024.*
 
 Please enjoy the book, and learn from it. 
+
+Feel free to email me with any questions or comments: nick.lee@wbs.ac.uk
+

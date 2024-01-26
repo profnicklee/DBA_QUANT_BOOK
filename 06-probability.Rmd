@@ -21,11 +21,13 @@ library(png)
 library(installr)
 ```
 
-In this lesson, we will learn about the classical theory of probability, and how it can be used to construct measures of uncertainy of our estimates, and from there to begin to draw inferences from the sample to the population.
+This Chapter provides examples and additional content for Lesson 8.
+
+In this lesson, we will learn about the classical theory of probability, and how it can be used to construct measures of uncertainy of our estimates, and from there we can begin to draw inferences from the sample to the population.
 
 ## Simulating Coin Flips
 
-The first thing we'll do is simulate some fair coin flips (we'll come back to this later as well)
+The first thing we'll do is simulate 5000 fair coin flips.
 
 Remember, this is another random process, so results will differ each time slightly
 
@@ -62,9 +64,9 @@ fair_plot <- flipsim %>% ggplot(aes(y = Pct_Heads, x = Trial)) + ggtitle("Percen
 fair_plot
 ```
 
-The thing to notice (in combination with the table of results above the plot) is that eventually the proportion of heads versus tails approaches 50%, but it does not start out that way.
+The thing to notice (in combination with the table of results above the plot) is that eventually the proportion of heads versus tails approaches 50%, *but it does not start out that way*.
 
-In other words, for a fair coin toss sequence, the trials (tosses) are *independent*, which means that for any given toss of the coin, the chance of a head or tail is 50%. But, that's not the same as saying that you'll get equal numbers of heads or tails for any given sequence of multiple tosses - it's not 'self-correcting' in any other way than sheer weight of numbers. So, **eventually** over enough trials, the sequence should start to look like 50/50 heads and tails. But, that is not the tosses 'self-correcting', simply that you are tossing a lot of coins. This is at the root of a number of fallacies about predicting random events, which we'll come back to.
+In other words, for a fair coin toss sequence, the trials (tosses) are *independent*, which means that for any given toss of the coin, the chance of a head or tail is 50%. But, that's not the same as saying that you'll get equal numbers of heads or tails for every (or any) particular sequence of multiple tosses - it's not 'self-correcting' in any other way than sheer weight of numbers. So, **eventually** over enough trials, the sequence should start to look like 50/50 heads and tails. But, that is not the tosses 'self-correcting', simply that you are tossing a lot of coins. This is at the root of a number of fallacies about predicting random events, such as the Gambler's fallacy.
 
 ## Premier League Goals and the Poisson Distribution
 
@@ -138,11 +140,11 @@ VarianceGoals
 
 This is not exactly the same, but good enough to be going on with.
 
-So, it seems to me at least that we can use the Poisson distribution to fairly accurately describe the probability of occurance of a given number of total goals scored in a premier league game, for this season at least.
+So, it seems to me at least that we can use the Poisson distribution to at least somewhat accurately describe the probability of occurance of a given number of total goals scored in a premier league game, for this season at least.
 
 The first thing I am going to do with that information is build a figure which compares the *actual* numbers of goals scored in games with the *predicted* numbers which would be scored if the goals scored were a perfect Poisson distribution.
 
-Ideally, we would build the Poisson probabilities for 0-9 goals (which is our maximum number scored in 21-22). However, if you do this, you will find that the two tables (actual and predicted goals) will have different numbers of rows. This is because there were no games with 8 goals scored in 21-22, but one with 9.
+Ideally, we would build the Poisson probabilities for 0-9 goals (which is the maximum number scored in 21-22). However, if you do this, you will find that the two tables (actual and predicted goals) will have different numbers of rows. This is because there were no games with 8 goals scored in 21-22, but one with 9.
 
 This is a bit annoying, but not a big issue. What we do is build a Poisson probability distribution for 0-8 goals, and treat the final probability as that for '8 or more' goals, for the purposes of drawing our figure. This isn't strictly correct, because we have not collected up our actual goal data into that category, but we could do that if we wanted to.
 
@@ -181,7 +183,9 @@ NewGoalsTable %>%
   geom_bar(stat = "identity", position = "dodge")
 ```
 
-So, the above was a bit of show, but what we want is the 'go'. In other words, what could we do with this information?
+Wow, that is pretty accurate! Remember, the 'expected' figures are purely drawn from the *entirely theoretical* Poisson distribution with a mean of 2.82. They very closely match the actual data.
+
+To be fair though, that graph is really just a bit of show, but what we want is the 'go'. In other words, what could we do with this information?
 
 Well, there is a lot of money spent on sports betting. We could use this information to help us decide whether we should place a bet that **there will be a game in the 22-23 season with 10 goals?** - assuming that this is being written before the 22-23 season (which is true).
 
@@ -207,23 +211,23 @@ So, given there are 380 games per season, you would expect a game with 10 goals 
 
 So, if I started counting from the 21-22 season, the answer is NO, I would not bet on there being a game with 10 goals in the 22-23 Premier League season.
 
-But, let's add some further context, as of November 2022, there have been 5 games in the history of the Premier League where 10 goals have been scored (and 1 with 11).
+But, let's add some (pretty obvious) further context, as of November 2022, there have been 5 games in the history of the Premier League where 10 goals have been scored (and 1 with 11).
 
 The Premier League has been going since 1992, and so far in Nov 22 there have been...30 seasons. So, we are probably due one.
 
 AND, the last game with 10 goals was in 2013 (Man Utd 5, West Brom 5)
 
-So, I reckon we are definitely-maybe-probably due one.
+So, I reckon we are *definitely-maybe-probably* due one.
 
 By the way, as of the start of the 22-23 season, there had been 21 matches with 9 goals. We would expect given our Poisson distribution that a game with 9 goals should happen every 1.4 seasons, meaning over 30 seasons we would expect.... 21.
 
 ### 2023 Update
 
-So, the above example is *totally unchanged* from when I originally coded it in 2022. The million dollar question: *was there a game with 10 goals in the 22-23 season...?*
+So, the above example is *totally unchanged* (other than some typo corrections and nicer wording) from when I originally coded it in 2022. The million dollar question: *was there a game with 10 goals in the 22-23 season...?*
 
 The answer is no, there wasn't. But there were two with 9! Luckily I am not a betting man. I do think we are due one, so this season (2024) is probably a good bet, but as of January 20th 2024, we still haven't had one... Unless of course you think something has fundamentally changed about the premier league in recent years, changing the probability of goals (and thus suggesting recent seasons are drawn from a *Poisson distribution with different characteristics* than past ones), which is in fact an interesting question in its own right...
 
-## Birthweights and the Normal Distribution: Brief Example
+## Birth Weight and the Normal Distribution: Brief Example
 
 Let's consider UK births in 2020, since they're a subject close to my heart, as my son was born that year.
 
@@ -276,5 +280,7 @@ print (birth.mean)
 print(birth.sd)
 
 ```
+
+The first number is the mean, the second is the standard deviation.
 
 What you can see here is, just using the real data from 2020 UK birthweights, it looks very much like what is called a 'normal distribution', or what you might have heard called a 'bell curve'. We can almost certainly treat any given child's birthweight as if it was a random variable drawn from a normal distribution, with a mean and standard deviation that is given by the empirical data here (3345.263 and 577.7594 respectively).

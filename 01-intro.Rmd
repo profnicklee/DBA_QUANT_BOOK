@@ -18,13 +18,23 @@ This Chapter is designed to work with Lecture 2.
 
 Here, I will demonstrate a number of important concepts about data displays and descriptions.
 
-First, we find some data to play with. We'll begin by looking at some COVID data. Here is some data from Johns Hopkins University as at April 26 2022 by country about cases, deaths, and mortality for COVID. I'm going to use the top 20 countries in terms of raw number of cases
+First, let's find some data to play with. In the following examples I will use some data from the Johns Hopkins Coronavirus Resource Center as at April 26 2022, which contains data by country about cases, deaths, and mortality for COVID.
+
+<https://coronavirus.jhu.edu/>
+
+However, as of 2023, the JHCRC ceased collecting data, and their archival data is available on their github:
+
+<https://github.com/CSSEGISandData/COVID-19>
+
+However, I do think it would be quite hard to recreate the exact snapshot in time of the data set we are using here.
+
+I'm going to use the top 20 countries in terms of raw number of cases
 
 ```{r}
 COVID <- read_excel("Data/COVID.xlsx",sheet = "Top 20")
 ```
 
-So, to demonstrate how we can easily change people's views of a data set, let's run some bar charts:
+To demonstrate how we can easily change people's views of a data set, let's run some bar charts:
 
 ```{r}
 p <- ggplot(COVID,aes(NAME,S_RATE))
@@ -40,9 +50,9 @@ p2 + coord_flip()
 
 That's nice. The basic conclusion we can draw is everyone is pretty much the same in terms of survival rate, although Mexico is a bit down.
 
-Interestingly, it seems to me that the variation is more pronounced in this presentation where you look 'down' a line of results, than above where you look across.
+Interestingly, it seems to me that the variation is more pronounced in this presentation where you look 'down' a line of results, than above where you look across. I'm not aware of any theory behind why, or even if anyone has ever noted that before, but it's definitely something I noticed here.
 
-Anyway, if I wanted to make everyone think that COVID survival rates were really different, there's a simple trick I could use:
+Either way, if I wanted to make everyone think that COVID survival rates were really different, there's a simple trick I could use:
 
 ```{r}
 # ggplot(COVID,aes(NAME,S_RATE))+geom_bar(stat="identity")+coord_flip(ylim=c(90,100))
@@ -52,7 +62,7 @@ p2 + coord_cartesian(ylim = c(90, 100))
 
 Wow, how do you like that! What's different?
 
-Changing the scale of the axis is an old trick, and when used to manipulate opinion it's a bad thing. However, there is a case to say we need to know what we want to say, before we decide how to say it. When does 'making sure we see the right message' move into 'outright manipulation / misrepresentation?'.
+Changing the scale of the y-axis is an old trick, and when used to manipulate opinion it's a bad thing. However, there is a case to say we need to know what we want to say, before we decide how to say it. When does 'making sure we see the right message' move into 'outright manipulation / misrepresentation?'.
 
 Here's another common way this type of data is presented in media and non-scientific reports:
 
@@ -72,11 +82,11 @@ Technically, it's wrong to present this data in a line chart, because it is disc
 
 ## Summarizing Data with Numbers
 
-Above, we simply graphed a single variable of interest, and showed that some very basic changes to how it was displayed had the potential to 'lead' the reader to different conclusions.
+Above, we simply plotted a single variable of interest, and showed that some very basic changes to how it was displayed had the potential to 'lead' the reader to different conclusions. Even that simple tweaking is a powerful way to change opinion, and used in the wrong way can be very misleading.
 
-Now, let's think about the idea of and even simpler way to describe date - by summarizing it with just some numbers.
+Now, let's think about the idea of an *even simpler* way to describe data - by summarizing it with just some numbers.
 
-For this example, I am going to use data on GDP per head in 2020 for each nation, from the World Bank:
+For this example, I am going to use data on GDP per head in 2020 for each nation, from the World Bank.
 
 ```{r}
 GDP <- read_excel("Data/2020GDP.xls",sheet = "Data")
@@ -110,7 +120,7 @@ descr(GDP,
 )
 ```
 
-What we have here are the classic 'summary statistics' for 2020 GDPph.
+What we have here are the classic 'summary statistics' for 2020 GDP per head.
 
 One thing missing - which admittedly is not very useful in this case, is the Mode, or the 'most frequent' value.
 
@@ -145,11 +155,11 @@ print(max(GDP$GDP2020, na.rm=TRUE)-min(GDP$GDP2020, na.rm=TRUE))
 
 ```
 
-What we have here now includes the range (the bottom number) and the interquartile range (above that), which are both useful measures of spread.
+What we have here now includes the range (173454.4) and the interquartile range (15944.94), which are both useful measures of how 'spread out' the data is.
 
 Each of the summary numbers above has strengths and weaknesses when describing different types of data. Here, we will mainly talk about the sensistivity to outliers.
 
-Specifically, the **median** and **interquartile range** are less sensitive to outliers as measures of central tendency and range respectively than their counterparts the **mean** and the **range**. So, that's why you commonly see median in particular used so frequently in these sorts of situations.
+Specifically, the **median** and **interquartile range** are less sensitive to outliers as measures of central tendency and range respectively than their counterparts the **mean** and the **range**. So, that's why you commonly see the median used so frequently in these sorts of situations.
 
 But, what do we mean by outliers? Let's look at this in the context of another graphical display, the **box plot**.
 
@@ -168,7 +178,7 @@ bp
 
 A box plot presents a lot of information very efficiently. The **median** is the thick horizontal, the white rectangle is bounded by the **interquartile range**, and outliers are represented as dots.
 
-We can see here that the data is very skewed, and there are some very significant outliers.
+We can see here that the data is very skewed, and there are some very significant outliers at the high end (no prizes for guessing which countries they are).
 
 A weakness of a box plot is that it doesn't actually show the distribution of the data. One way to do this is to add what is called *jitter*, which actually plots the values of each case, with a 'jitter' to avoid overlapping identical values.
 
@@ -177,9 +187,9 @@ bp + geom_jitter(color="black", size=0.4, alpha=0.9)
 
 ```
 
-So, we can see here that most of the data is clustered towards the bottom of the range - i.e. very low GDPph. This is of course the same conclusion as the historgram allowed. But, the box plot also gives us plenty of other information about the variable.
+So, we can see here that most of the data is clustered towards the bottom of the range - i.e. very low GDPph. This is of course the same conclusion as the historgram allowed us to draw. But, the box plot also gives us plenty of *other* information about the variable.
 
-But, while box plots are nice, they can also obscure important facts about the distribution. Adding the jitter helps, but there are other ways to display this type of data that make the distribution more obvious.
+Even so, while box plots are nice, they can also obscure important facts about the distribution. Adding the jitter helps, but there are other ways to display this type of data that make the distribution more obvious.
 
 ## Violin Plots and Ridge Plots
 
@@ -226,7 +236,7 @@ data %>%
 
 ```
 
-Well, look at that. B has a bimodal distribution...
+Well, look at that. B has what is called a *bimodal* distribution.
 
 Lets look at what is called a **violin plot** to emphasize this:
 
@@ -268,5 +278,4 @@ data %>%
 
 ```
 
-These are really cool in my view. And, if you are asking me, my preference would be to combine jittered box plots, which show the basics, and emphasize the outliers and summary numbers, with ridge plots, which show a really nice visualization of the distributions of each variable. 
-
+These are really cool in my view. And, if you are asking me, my preference in this type of situation would be to combine jittered box plots, which show the basics, and emphasize the outliers and summary numbers, with ridge plots, which show a really nice visualization of the distributions of each variable. Taken together, these plots allow us to understand a surprisingly large amount of important information about variables.

@@ -1,11 +1,8 @@
 # Associations and Relationships {#assoc_rel}
 
-
-
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
-
 
 ```{r}
 library(readxl)
@@ -15,27 +12,28 @@ library(ggpubr)
 
 ```
 
+This chapter supplements the content in Lecture 5.
+
 ## Correlations and Associations
 
 First, let's look at the basic concepts of correlation, using some data from the World Happiness Report, and GDP from the World Bank, all put together by the team at Our World in Data.
 
-You can explore their work here: https://ourworldindata.org/
-
+You can explore their work here: <https://ourworldindata.org/>
 
 ```{r}
 Happy<-read_excel("Data/HappyGDP.xlsx", sheet = "2020")
 
 ```
 
-Just double check the data by describing it. We've got 249 countries, with population, GDP per capita, and Happiness. There's a fair bit of missing data, but that's ok, as long as we are aware of it.
+First, I can just double check the data by describing it.
 
 ```{r}
 describe(Happy)
 ```
 
-We've got 249 countries, with population, GDP per capita, and Happiness. There's a fair bit of missing data, but that's ok, as long as we are aware of it.
+We've got 249 countries, with population, GDP per capita, and Happiness. There's a fair bit of missing data, which you can see by looking at the numbers in the *n* column. That's ok, as long as we are aware of it.
 
-Let's run a basic scatterplot and see what happens.
+Let's plot this data using a very basic scatterplot.
 
 ```{r}
 plot(Happy$GDPpc, Happy$Happiness)
@@ -45,9 +43,9 @@ Interpretation: there's seemingly an association here. As one variable increases
 
 It's worth noting that I have chosen to put GDPpc on the x-axis, which *implies* that the driver of Happiness is GDP. This replicates the way that most of the media articles that are regularly written on this kind of topic do it.
 
-Nevertheless, this is just a scatterplot, so there is no real requirement to put any particular one of the variables on the x-axis, because it's important that you do **NOT** draw any causal conclusion from this very basic scatterplot. Correlations are *not* in any way indicative of any causality in the relationship, since there are many other things which could be going on that are impossible to tease out simply with a bivariate correlation. For example, there could be a spurious relationship - what could cause *both* happiness and GDPpc to increase?
+Nevertheless, this is just a scatterplot, so there is no real requirement to put any particular one of the variables on the x-axis, because it's important that you do **NOT** draw any causal conclusion from this very basic scatterplot. Simple associations are *not* in any way conclusive evidence of any causality in the relationship, since there are many other things which could be going on that are impossible to tease out simply with a bivariate association seen on a scatterplot. For example, there could be a spurious relationship - what could cause *both* happiness and GDPpc to increase?
 
-Ideas? Could it simply be 'economic development of the country', or 'political stability'? Or something else?
+Ideas? Could it simply be something like 'political stability'? Or something else?
 
 Either way, all we have here is a basic data display. While, as I showed previously, simply displaying data can be very powerful, it is still only essentially an 'eyeball' analysis, and different people might draw different conclusions here (we'll discuss that later on).
 
@@ -63,10 +61,10 @@ Assoc1
 #Assoc2
 
 ```
+
 Here, we can see that the correlation is 0.75
 
 But what does that mean? We can **return to the slides for some explanation**.
-
 
 ## Introducing Nonlinear Associations
 
@@ -76,21 +74,20 @@ Let's return to the scatterplot of GDPpc and Happiness
 plot(Happy$GDPpc, Happy$Happiness)
 ```
 
-As the Economist analysis suggests, this association also looks kind of *nonlinear*. 
+As the *Economist* analysis discussed in the lectures suggests, this association also looks kind of *nonlinear*.
 
-However, unlike the Economist, we can also say that there are multiple ways to look at this:
+However, unlike the *Economist*, we can also say that there are multiple ways to look at this:
 
-First, you could take the Economist's view that this is probably a **nonlinear relationship?** Indeed, we can check this out by *transforming* GDPpc and comparing the results between transformed and non transformed data. 
+First, you could take the *Economist's* view that this is probably a **nonlinear relationship.** Indeed, we can check this out by *transforming* GDPpc and comparing the results between transformed and non-transformed data.
 
-Let's have a try at that. What we will do is transform the GDPpc variable using a log transform. 
-
+Let's have a try at that. What we will do is transform the GDPpc variable using a log transform (i.e. multiplying GDPpc by the natural logarithm).
 
 ```{r}
 Happy$GDPpc_log <- log(Happy$GDPpc)
 describe(Happy)
 ```
 
-We can see there is a new variable now, GDPpc_log, which is the log transformed GDPpc variable - basically the original GDPpc variable multiplied by the natural logarithm. 
+We can see there is a new variable now, GDPpc_log, which is the log transformed GDPpc variable - basically the original GDPpc variable multiplied by the natural logarithm.
 
 Of course, there are many other possible transforms, and I'll touch on that below, for now let's rerun the plot using GDPpc_log
 
@@ -100,9 +97,9 @@ x <- Happy$GDPpc_log
 plot(x, y)
 ```
 
-That relationship definitely looks more linear, and if that was my only criteria for deciding what to do with the data, I would definitely now run with this idea, as the Economist did in their article
+That relationship definitely looks more linear, and if that was my only criteria for deciding what to do with the data, I would definitely now run with this idea, as the *Economist* did in their article
 
-With that in mind, let's take a quick look at the correlations for these variables.
+With that in mind, let's take a quick look at the correlations for these variables. First the original GDPpc, and then the log transformed one.
 
 ```{r}
 Assoc1 <- cor.test(Happy$Happiness, Happy$GDPpc, 
@@ -115,22 +112,21 @@ Assoc2
 
 ```
 
-We can see that the association is stronger (the correlation is higher) for the log GDPpc variable, although to be honest, it is not a very big difference in this data, compared to other data sets that have been discussed in the media. That's interesting in itself (note we are using 2020 data, so maybe the pandemic has something to do with it?)
+We can see that the association is stronger (the correlation is higher) for the log GDPpc variable, although to be honest, it is not a very big difference here, compared to other data sets that I have seen discussed in the media. That's interesting in itself (note we are using 2020 data, so maybe the pandemic has something to do with it?)
 
-However, **transformations** of data are kind of a complicated topic though. In essence, what we are doing is changing the distribution of one of the variables, in a systematic way, in order to convert a non-linear relationship (unable to be tested with correlation or regression) into a linear one.
+However, **transformations** of data are kind of a complicated topic though. In essence, what we are doing is changing the distribution of one (or more) of the variables, in a systematic way, in order to convert a non-linear relationship (which may be unable to be tested with methods like correlation and regression) into a linear one.
 
-There are many different types of transformations available to you, and the one you choose depends on the form of the nonlinearity. A **log** transform converts an exponential relation into a linear one. But, there are specific transforms for many different forms. Oftentimes, it's not always obvious what exactly to do, and people often default to transforming **any** nonlinear-looking relationship using log or maybe the quadratic (squaring). It's not really that simple though, and I think we need to be a bit more logical and theory-driven on **why** we transform variables.
+There are many different types of transformations available to you, and the one you choose depends on the form of the nonlinearity. A **log** transform converts an exponential (or similar) relation into a linear one. But, there are specific transforms for many different forms. Oftentimes, it's not always obvious what exactly to do, and people often default to transforming **any** nonlinear-looking relationship, or highly skewed variable, using log or maybe the quadratic (squaring). It's not really that simple though, and I think we need to be a bit more logical and theory-driven on **why** we transform variables.
 
 In this case, I admit that the logic makes sense, that there is still a relationship between GDPpc and happiness at the top end, but you just have to increase GDPpc by a **lot more** to get the same change in happiness, compared to the change needed at the lower end of GDPpc. And, making that transform to come to that conclusion actually makes a difference to how we think of the influence of GDPpc on happiness, and could concievably lead to policy changes compared to the prior non-transformed analysis.
 
-
-**Even so**, I have a slightly different possibility on my mind. In fact, it may be that there are **two groups** of country, low and high income, and different **linear** associations within those groups. That's a similar-ish idea to the nonlinear one, but it is a bit different, and I actually prefer that idea. A nice challenge would be to work out a way to test which of the two alternative explanations is actually better supported by the data...
+**Even so**, I have always had a slightly different possibility on my mind. In fact, it may be that there are **two groups** of country, low and high income, and different **linear** associations within those groups. That's a similar-ish idea to the nonlinear one, but it is a bit different, and I actually prefer that idea. A nice challenge would be to work out a way to test which of the two alternative explanations is actually better supported by the data...
 
 Maybe I'll leave that for another day though.
 
 ## Regression
 
-We can add a **regression line** to this scatterplot, for some extra information over the correlation
+We can add a **regression line** to this scatterplot, for some extra information over the correlation.
 
 ```{r}
 ggscatter(Happy, x = "GDPpc", y = "Happiness", 
@@ -149,9 +145,9 @@ ggscatter(Happy_log, x="GDPpc_log", y="Happiness" ,
           xlab = "log GDP per capita", ylab = "Happiness")
 ```
 
-You can see that using the log GDPpc variable does improve things, but not by that much in my view. That said, it's clear that the line is a bit more accurate (the errors are lower which can be seen by the narrower shaded regions). So, if we are looking for the 'best' model, it's pretty clear that the log GDPpc model is better than the simple GDPpc model.
+You can see that using the log GDPpc variable does improve things, but not by that much in my view. That said, it's clear that the line is a bit more 'precise' (the errors are lower which can be seen by the narrower shaded regions). So, if we are looking for the 'best' model, it's pretty clear that the log GDPpc model is better than the simple GDPpc model.
 
-Either way, the regression line adds a layer of information on to the correlation, which allows us to predict y from x.
+Either way, the regression line adds a layer of information on to the correlation, which allows us to predict *y* from *x*.
 
 How so? Well, let's add the regression equation to the chart to see:
 
@@ -181,10 +177,9 @@ ggscatter(Happy_log, x="GDPpc_log", y="Happiness" ,
 
 ```
 
-This adds an *intercept*, and with that plus the coefficient we have all we need to plot a straight line, which we can *extrapolate* to higher values of GDPpc (although remember this is the logged GDP variable) and predict what the happiness scores would be.
+This adds an *intercept*, and with that plus the coefficient we have all that we need to plot a straight line, which we can *extrapolate* to higher values of GDPpc (although remember this is the logged GDP variable) and predict what the happiness scores would be.
 
 This is obviously viable to the extent we can justify the relationship, and also within the parameters of our variables, and how confident we are that the relationship is consistent at all levels of the variables.
-
 
 ## Multiple Regression
 
@@ -220,8 +215,7 @@ ggscatter(Heart, x = "smoking", y = "biking",
           xlab = "Smoking", ylab = "Biking")
 ```
 
-Remember, these are *simple* regression lines, with bivariate scatterplots. What I mean, is the effect of biking on heart disease does not take account of the effect of smoking on heart disease. What we need to do is run a model which takes account of *both* the predictors, as **we can explain on the slide-deck**
-
+Remember, these are *simple* regression lines, with bivariate scatterplots. What I mean, is the effect of biking on heart disease does not take account of the effect of smoking on heart disease. What we need to do is run a model which takes account of *both* the predictors, as **we can explain on the slide-deck...**
 
 Now we can run the Multiple Regression Model
 
@@ -231,15 +225,15 @@ heart.disease.lm<-lm(heart.disease ~ biking + smoking, data = Heart)
 summary(heart.disease.lm)
 ```
 
-We can interpret these results just as we did the earlier simple regression results.
+We can interpret these results in the following way:
 
 A 1 unit increase in biking will on average lead to a 0.2 unit decrease in heart disease A 1 unit increase in smoking will on average lead to a 0.17 unit increase in heart disease.
 
 Of course, what these 'units' refer to depends on what you have measured them with of course. But, the unarguable interpretation is that the effect is strong.
 
-However, because the scales of the variables are different, its not really possible to compare the sizes of the effects. So to some extent we don't know which of the two variables has the 'bigger' effect here, relatively at least.
+However, because the *scales of the variables* are different, its not really possible to compare the sizes of the effects. So to some extent we don't know which of the two variables has the 'bigger' effect here, relatively at least.
 
-To do that, we need to standardize the coeffiecients, which basically means putting all the variables on the **same scale**. Beforehand, they all were on different scales, which you can see by going back up and looking at the range, mean, and standard deviation of the original variables. You can see for yourself they are all different. 
+To do that, we need to standardize the coeffiecients, which basically means putting all the variables on the **same scale**. Beforehand, they all were on different scales, which you can see by going back up and looking at the range, mean, and standard deviation of the original variables. You can see for yourself they are all different.
 
 We can solve this issue by creating a new set of standardized data, and running the model on that, as follows:
 
@@ -256,13 +250,13 @@ std.heart.disease.lm<-lm(heart.disease ~ biking + smoking, data = std_Heart)
 summary(std.heart.disease.lm)
 ```
 
-You can see the things that have changes are the 'Estimates', which are now standardized.
+You can see the things that have changed are the 'Estimates', which are now standardized.
 
 In decimal, they are -0.94 for biking and 0.32 for Smoking.
 
 The correct interpretation of these standardized effects is that for every 1SD increase in biking, you expect a 0.94SD decrease in heart disease, and for every 1SD increase in smoking, you would expect a 0.32 increase in heart disease.
 
-So, we can see that actually biking has a much **higher** relative effect on heart disease than smoking (although in the opposite direction). However, this assumes that both the two IVs have similar standard deviations, and distributions. Which, we didn't check.
+So, we can see that actually biking has a much **higher** relative effect on heart disease than smoking (although in the opposite direction). That said, this assumes that both the two IVs have similar standard deviations, and distributions, and we didn't check that in this example.
 
 ## Visualizing Multiple Regression
 
@@ -272,7 +266,7 @@ Some people like to use 3D-style plots, which look cool, but are not always easy
 
 In this case, we can use a pretty simple visualization, where we could plot the relationship of biking to heart disease at different levels of smoking.
 
-This would be a quite typical way to do things if we thought the relationship between biking and heart disease changed according to the level of smoking, in which case it would be a moderator. Here, it doesn't really work that way, but it's a cool visualization regardless. It does require some data prep, but not that much, and I took the basic idea from the website where I sourced the data: <https://www.scribbr.com/statistics/linear-regression-in-r/>
+This would be a fairly typical way to do things if we thought the relationship between biking and heart disease changed according to the level of smoking, in which case it would be a moderator. Here, it doesn't really work that way, but it's a cool visualization regardless. It does require some data prep, but not that much, and I took the basic idea from the website where I sourced the data: <https://www.scribbr.com/statistics/linear-regression-in-r/>
 
 ```{r}
 viz.data<-expand.grid(
@@ -298,7 +292,6 @@ Here, we can see that the effect of smoking is really just to raise the likeliho
 
 So, for a given person who bikes a given amount, if they smoke more they will have a higher risk than a person who bikes the same amount but smokes less.
 
-But, for a given smoker, the more they bike, the lower their risk of heart disease, to the extent that if a heavy smoker bikes enough, their actual risk of heart disease could even be lower than a non-smoker who does not bike at all.
+But, *for a given smoker*, the more they bike, the lower their risk of heart disease, to the extent that if a heavy smoker bikes enough, their actual risk of heart disease could even be lower than a non-smoker who does not bike at all.
 
 Don't forget, this is not real data, but the point stands. Get on your bike.
-
