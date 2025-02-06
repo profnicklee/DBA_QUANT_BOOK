@@ -227,6 +227,22 @@ So, the above example is *totally unchanged* (other than some typo corrections a
 
 The answer is no, there wasn't. But there were two with 9! Luckily I am not a betting man. I do think we are due one, so this season (2024) is probably a good bet, but as of January 20th 2024, we still haven't had one... Unless of course you think something has fundamentally changed about the premier league in recent years, changing the probability of goals (and thus suggesting recent seasons are drawn from a *Poisson distribution with different characteristics* than past ones), which is in fact an interesting question in its own right...
 
+### 2024/5 Update
+
+Did we get one in 2023-2024...again, no. The highest in fact this season was 8 - and there were 3 games with 8 goals in. 
+
+This is interesting. At this point (6 February, 2025) I find it tempting to put on a bet for a 10 goal game. I might do that, even though I am not much of a gambler. Here's why: 
+
+1. The probabilities suggest we are well overdue one, unless there has been something fundamentally changing about the distribution of premier league goal.
+
+2. The sort of change would logically need to be a reduction of average goals scored per game, which would change the mean of the Poisson distribution, reducing the probabilities of a 9-goal game.
+
+3. However, the average goals per game is actually ***increasing***, according to the statistics - and you can check out the following to confirm this: https://www.premierleague.com/news/4016793
+
+4. So, one could also draw the conclusion that the Poisson distribution is no longer a good fit - but this could be checked, and I would guess this isn't the case (you can check yourself).
+
+Interesting. 
+
 ## Birth Weight and the Normal Distribution: Brief Example
 
 Let's consider UK births in 2020, since they're a subject close to my heart, as my son was born that year.

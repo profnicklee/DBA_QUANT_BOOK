@@ -23,6 +23,7 @@ probability
 simulating-coin-flips
 premier-league-goals-and-the-poisson-distribution
 update
+update-1
 birth-weight-and-the-normal-distribution-brief-example
 statistics
 the-distribution-of-sample-means-and-the-central-limit-theorem
