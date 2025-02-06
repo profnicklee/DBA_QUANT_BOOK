@@ -97,7 +97,10 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a></li>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-the-original-sample"><i class="fa fa-check"></i><b>5.1.1</b> Bootstrapping the Original Sample…</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
@@ -193,54 +196,54 @@
 <pre><code>## # A tibble: 10 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1    73  21.8    18.9          14.2 
-##  2    30  25.1     5.84         11.5 
-##  3   165  35.3     9.15          9.75
-##  4    57  21.5    23.0          15.0 
-##  5    43   9.67    3.50         12.9 
-##  6   365  59.9    22.9           7.32
-##  7   176  15.5    11.6          13.4 
-##  8   107  49.8     3.57          6.26
-##  9   369  39.9    14.5          10.0 
-## 10   402  19.3    29.7          16.3</code></pre>
+##  1   327   9.82   18.0          16.8 
+##  2   179   5.20    4.36         15.6 
+##  3   402  19.3    29.7          16.3 
+##  4   497  42.3    20.7          10.1 
+##  5   431  64.0    29.6           8.57
+##  6   454  74.2    22.6           4.30
+##  7   416  38.1    17.0           8.35
+##  8    21  28.5    14.9          11.7 
+##  9   305  70.2    13.8           5.32
+## 10    88  14.6     6.80         14.5</code></pre>
 <p>Next, let’s look at the relevant statistics (median and then mean) and distribution of this sample of 10:</p>
-<pre><code>## [1] 13.04945</code></pre>
-<pre><code>## [1] 14.25362</code></pre>
+<pre><code>## [1] 17.51434</code></pre>
+<pre><code>## [1] 17.73365</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <p>We can do the same for successively larger samples, say 50, and 200:</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   241   6.28   20.2          17.6 
-##  2   466  60.6    23.8           5.98
-##  3   106  22.5     7.70         11.7 
-##  4   310  60.3     8.79          4.59
-##  5   209   7.83   26.8          17.6 
-##  6   498  30.8    23.6          11.8 
-##  7    41  31.5    22.2          13.2 
-##  8   477  59.4    20.4           7.67
-##  9   312  43.3     8.29          6.56
-## 10   363  69.8    20.3           4.52
+##  1   333   74.0   18.9           3.30
+##  2    72   70.5   12.7           2.91
+##  3   234   29.2   27.4          13.6 
+##  4   258   10.7   16.5          15.4 
+##  5   413   30.1   29.3          15.0 
+##  6    77   40.6   26.0          12.0 
+##  7   452   74.9    5.70          1.09
+##  8    37   67.4   23.9           5.28
+##  9   201   35.0   22.7          12.5 
+## 10    29   48.6   10.4           6.66
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.10717</code></pre>
-<pre><code>## [1] 16.1421</code></pre>
+<pre><code>## [1] 16.12046</code></pre>
+<pre><code>## [1] 15.24468</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <pre><code>## # A tibble: 200 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   127  22.5    26.0          14.8 
-##  2   130   9.41    8.61         13.5 
-##  3   129  17.6    27.2          15.1 
-##  4   327   9.82   18.0          16.8 
-##  5   321   3.96   27.5          19.4 
-##  6    39  14.0    21.0          16.0 
-##  7   346   1.58    9.06         14.4 
-##  8    30  25.1     5.84         11.5 
-##  9    49  28.6    12.5          11.4 
-## 10   164  70.9    29.9           6.34
+##  1    62  11.5     6.74         14.6 
+##  2   391  40.0    14.5           9.51
+##  3   125  71.6    18.9           4.09
+##  4   252  35.9    18.5          11.4 
+##  5   305  70.2    13.8           5.32
+##  6    83  30.5    12.4          11.1 
+##  7   359   9.66    4.35         13.6 
+##  8   366  19.1    27.1          16.6 
+##  9   245  54.9    13.0           6.29
+## 10   221  61.2     2.19          3.52
 ## # ℹ 190 more rows</code></pre>
-<pre><code>## [1] 15.17894</code></pre>
-<pre><code>## [1] 15.17894</code></pre>
+<pre><code>## [1] 15.2617</code></pre>
+<pre><code>## [1] 15.2617</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <p>As you can see, the distributions of the smaller samples are more peaky and bumpy, because they are very sensitive to individual data points. As the sample gets larger, it starts to look more like the population right?</p>
 <p>We can complete our table now in the slides of the sample statistics (median and mean) showing that in general, as we get closer to the population size, the statistics generally get closer too. To do so, let’s go <strong>back to the slides…</strong></p>

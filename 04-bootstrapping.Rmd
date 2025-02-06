@@ -167,6 +167,8 @@ boot.ci(results, type="norm")
 
 We'll now build a table with these values *back in the slide deck. I*Again, remember the values in the slide deck will differ from these due to the randomness of the process.
 
+### Bootstrapping the Original Sample...
+
 Now, let's shift our minds a bit, and consider that the data set of 498 actually represents **a sample of a larger population** (remember from the last chapter, it's simulated, but meant to represent a sample from the population).
 
 So, let's bring in Researcher 4, the most conscientious of all. She is the one who manages to take a sample of 498 people from the population. And, *finally*, we can bootstrap the original full sample of 498:

@@ -97,7 +97,10 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>5</b> Introduction to Bootstrapping</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a></li>
+<li class="chapter" data-level="5.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-in-the-context-of-previous-examples"><i class="fa fa-check"></i><b>5.1</b> Bootstrapping in the Context of Previous Examples</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-the-original-sample"><i class="fa fa-check"></i><b>5.1.1</b> Bootstrapping the Original Sample…</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="bootstrap.html"><a href="bootstrap.html#bootstrapping-other-stuff"><i class="fa fa-check"></i><b>5.2</b> Bootstrapping Other Stuff…</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="bootstrap.html"><a href="bootstrap.html#correlations"><i class="fa fa-check"></i><b>5.2.1</b> Correlations</a></li>
@@ -174,8 +177,8 @@
 <p>We treated this as <strong>the population</strong> and then sampled from it to demonstrate uncertainty at different sample sizes.</p>
 <p>So, let’s take the sample of 50 that we drew from that ‘population’ of 498, and imagine that we got this sample by (for example) doing a survey of the population (of 498), and this is our data set for analysis.</p>
 <p>First we will remind ourselves of the properties and distribution of our sample, the median, mean, and distribution:</p>
-<pre><code>## [1] 16.10717</code></pre>
-<pre><code>## [1] 16.1421</code></pre>
+<pre><code>## [1] 16.12046</code></pre>
+<pre><code>## [1] 15.24468</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Ok, there we go. Remember, this sample is our ‘data set’ for analysis.</p>
 <p>We know the median and mean, but we have no real indication of the uncertainty in those estimates. In order to get that information, we will eventually use the bootstrap method. For now, we are just going to demonstrate the basic idea.</p>
@@ -185,54 +188,54 @@
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   480   7.58    29.6         18.1 
-##  2   245  54.9     13.0          6.29
-##  3   498  30.8     23.6         11.8 
-##  4   241   6.28    20.2         17.6 
-##  5   466  60.6     23.8          5.98
-##  6   241   6.28    20.2         17.6 
-##  7   498  30.8     23.6         11.8 
-##  8   285  61.9     26.3          6.86
-##  9    39  14.0     21.0         16.0 
-## 10   374  61.5     17.0          5.91
+##  1   423   71.9   19.4          4.11 
+##  2   201   35.0   22.7         12.5  
+##  3   225   59.5   18.8          5.69 
+##  4   307   17.8    3.48        11.4  
+##  5   325   71.0    3.52         0.705
+##  6   380   39.2   15.3         10.4  
+##  7   221   61.2    2.19         3.52 
+##  8    72   70.5   12.7          2.91 
+##  9   298   18.2   15.9         13.9  
+## 10    29   48.6   10.4          6.66 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 17.19881</code></pre>
-<pre><code>## [1] 17.82255</code></pre>
+<pre><code>## [1] 15.34168</code></pre>
+<pre><code>## [1] 14.08049</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <p>Marvelous! Now, for the purpose of example, let’s draw two more of these resamples from the original 50, take their median and mean, and plot the distributions…</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   453  10.5    15.0          15.6 
-##  2   151  12.3    26.9          17.8 
-##  3   245  54.9    13.0           6.29
-##  4   110  68.2     2.19          1.97
-##  5   333  74.0    18.9           3.30
-##  6   159  59.6    24.8           8.52
-##  7   310  60.3     8.79          4.59
-##  8   453  10.5    15.0          15.6 
-##  9   356  66.0     3.51          2.72
-## 10    91   6.95   26.1          18.7 
+##  1   230   22.7    8.29         11.3 
+##  2   333   74.0   18.9           3.30
+##  3   333   74.0   18.9           3.30
+##  4   106   22.5    7.70         11.7 
+##  5   186   45.6   20.6           9.80
+##  6   123   48.3   12.0           7.30
+##  7   402   19.3   29.7          16.3 
+##  8   353   64.2   19.0           6.06
+##  9   161   30.5    2.53          8.94
+## 10    41   31.5   22.2          13.2 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 14.96039</code></pre>
-<pre><code>## [1] 14.56599</code></pre>
+<pre><code>## [1] 16.41031</code></pre>
+<pre><code>## [1] 15.65627</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1    62   11.5    6.74         14.6 
-##  2   245   54.9   13.0           6.29
-##  3   431   64.0   29.6           8.57
-##  4   306   26.2    7.44         12.4 
-##  5   306   26.2    7.44         12.4 
-##  6   285   61.9   26.3           6.86
-##  7   159   59.6   24.8           8.52
-##  8   443   22.5   16.3          13.7 
-##  9   119   27.7   18.6          11.5 
-## 10   310   60.3    8.79          4.59
+##  1    72  70.5    12.7           2.91
+##  2   394  22.4    21.7          15.0 
+##  3   380  39.2    15.3          10.4 
+##  4   432  66.0    13.6           4.18
+##  5   374  61.5    17.0           5.91
+##  6    29  48.6    10.4           6.66
+##  7   244   4.70    9.86         15.6 
+##  8   408  50.8    20.0           7.93
+##  9    40  45.8     4.72          7.04
+## 10   423  71.9    19.4           4.11
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.33101</code></pre>
-<pre><code>## [1] 16.57329</code></pre>
+<pre><code>## [1] 15.9476</code></pre>
+<pre><code>## [1] 16.01298</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>Now, if we <strong>return to the slides</strong>, we can build a table using these mean and median values. Of course, the slide deck will have slightly different values, since it’s based on a different run of the resampling process, but the principle is the same.</p>
 <p>So, this is the basic idea of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a program to do this many more times, such as a thousand or more.</p>
@@ -253,8 +256,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original      bias    std. error
-## t1* 14.25362 -0.09670051    2.714453</code></pre>
+##     original     bias    std. error
+## t1* 17.73365 0.08526573    2.603624</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -264,7 +267,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   ( 9.03, 19.67 )  
+## 95%   (12.55, 22.75 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>Now let’s do it for the other two subsamples of n=50, and n=200</p>
 <pre><code>## 
@@ -276,8 +279,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original       bias    std. error
-## t1*  16.1421 -0.008804413    1.076001</code></pre>
+##     original      bias    std. error
+## t1* 15.24468 -0.01907543    1.156241</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -287,7 +290,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (14.04, 18.26 )  
+## 95%   (13.00, 17.53 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
@@ -298,8 +301,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original     bias    std. error
-## t1* 15.04424 0.02831895   0.5931892</code></pre>
+##     original       bias    std. error
+## t1* 14.79855 -0.008074683   0.6024413</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -309,9 +312,11 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.85, 16.18 )  
+## 95%   (13.63, 15.99 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>We’ll now build a table with these values <em>back in the slide deck. I</em>Again, remember the values in the slide deck will differ from these due to the randomness of the process.</p>
+<div id="bootstrapping-the-original-sample" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Bootstrapping the Original Sample…<a href="bootstrap.html#bootstrapping-the-original-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, let’s shift our minds a bit, and consider that the data set of 498 actually represents <strong>a sample of a larger population</strong> (remember from the last chapter, it’s simulated, but meant to represent a sample from the population).</p>
 <p>So, let’s bring in Researcher 4, the most conscientious of all. She is the one who manages to take a sample of 498 people from the population. And, <em>finally</em>, we can bootstrap the original full sample of 498:</p>
 <pre><code>## 
@@ -337,6 +342,7 @@
 ## 95%   (14.73, 16.14 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>This is a very nice set of results, which can tell us many interesting things. <em>So let’s go back to the slides…..</em></p>
+</div>
 </div>
 <div id="bootstrapping-other-stuff" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Bootstrapping Other Stuff…<a href="bootstrap.html#bootstrapping-other-stuff" class="anchor-section" aria-label="Anchor link to header"></a></h2>
