@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Nick Lee" />
 
 
-<meta name="date" content="2025-02-06" />
+<meta name="date" content="2025-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,8 +177,8 @@
 <p>We treated this as <strong>the population</strong> and then sampled from it to demonstrate uncertainty at different sample sizes.</p>
 <p>So, let’s take the sample of 50 that we drew from that ‘population’ of 498, and imagine that we got this sample by (for example) doing a survey of the population (of 498), and this is our data set for analysis.</p>
 <p>First we will remind ourselves of the properties and distribution of our sample, the median, mean, and distribution:</p>
-<pre><code>## [1] 16.12046</code></pre>
-<pre><code>## [1] 15.24468</code></pre>
+<pre><code>## [1] 17.18294</code></pre>
+<pre><code>## [1] 16.19309</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Ok, there we go. Remember, this sample is our ‘data set’ for analysis.</p>
 <p>We know the median and mean, but we have no real indication of the uncertainty in those estimates. In order to get that information, we will eventually use the bootstrap method. For now, we are just going to demonstrate the basic idea.</p>
@@ -188,54 +188,54 @@
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   423   71.9   19.4          4.11 
-##  2   201   35.0   22.7         12.5  
-##  3   225   59.5   18.8          5.69 
-##  4   307   17.8    3.48        11.4  
-##  5   325   71.0    3.52         0.705
-##  6   380   39.2   15.3         10.4  
-##  7   221   61.2    2.19         3.52 
-##  8    72   70.5   12.7          2.91 
-##  9   298   18.2   15.9         13.9  
-## 10    29   48.6   10.4          6.66 
+##  1   490   70.2   16.3           4.71
+##  2   439   63.8    9.91          3.40
+##  3   374   61.5   17.0           5.91
+##  4   109   49.7   20.5           8.70
+##  5   451   24.7   25.6          13.7 
+##  6   276   67.8   15.2           4.68
+##  7   106   22.5    7.70         11.7 
+##  8    40   45.8    4.72          7.04
+##  9   386   65.2   24.2           7.18
+## 10   374   61.5   17.0           5.91
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 15.34168</code></pre>
-<pre><code>## [1] 14.08049</code></pre>
+<pre><code>## [1] 16.94339</code></pre>
+<pre><code>## [1] 15.63259</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <p>Marvelous! Now, for the purpose of example, let’s draw two more of these resamples from the original 50, take their median and mean, and plot the distributions…</p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1   230   22.7    8.29         11.3 
-##  2   333   74.0   18.9           3.30
-##  3   333   74.0   18.9           3.30
-##  4   106   22.5    7.70         11.7 
-##  5   186   45.6   20.6           9.80
-##  6   123   48.3   12.0           7.30
-##  7   402   19.3   29.7          16.3 
-##  8   353   64.2   19.0           6.06
-##  9   161   30.5    2.53          8.94
-## 10    41   31.5   22.2          13.2 
+##  1    36   18.8  16.8          15.1  
+##  2    74   49.4  23.2           9.47 
+##  3    38   29.9  24.6          13.5  
+##  4   464   73.8   0.642         0.552
+##  5   423   71.9  19.4           4.11 
+##  6   355   70.0  20.3           3.69 
+##  7   376   23.3  20.7          13.8  
+##  8   240   21.6   9.35         14.0  
+##  9    12   52.9  25.1           8.61 
+## 10    53   69.9  17.4           4.26 
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 16.41031</code></pre>
-<pre><code>## [1] 15.65627</code></pre>
+<pre><code>## [1] 17.31992</code></pre>
+<pre><code>## [1] 17.00004</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <pre><code>## # A tibble: 50 × 4
 ##     ...1 biking smoking heart.disease
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
-##  1    72  70.5    12.7           2.91
-##  2   394  22.4    21.7          15.0 
-##  3   380  39.2    15.3          10.4 
-##  4   432  66.0    13.6           4.18
-##  5   374  61.5    17.0           5.91
-##  6    29  48.6    10.4           6.66
-##  7   244   4.70    9.86         15.6 
-##  8   408  50.8    20.0           7.93
-##  9    40  45.8     4.72          7.04
-## 10   423  71.9    19.4           4.11
+##  1   332  51.6     23.3          8.55
+##  2   451  24.7     25.6         13.7 
+##  3    80  60.6     18.1          6.52
+##  4    53  69.9     17.4          4.26
+##  5    36  18.8     16.8         15.1 
+##  6   247  49.6     16.3          8.14
+##  7    75   4.49    23.4         18.8 
+##  8   157  70.3     15.1          3.04
+##  9    29  48.6     10.4          6.66
+## 10   276  67.8     15.2          4.68
 ## # ℹ 40 more rows</code></pre>
-<pre><code>## [1] 15.9476</code></pre>
-<pre><code>## [1] 16.01298</code></pre>
+<pre><code>## [1] 16.75344</code></pre>
+<pre><code>## [1] 16.05968</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>Now, if we <strong>return to the slides</strong>, we can build a table using these mean and median values. Of course, the slide deck will have slightly different values, since it’s based on a different run of the resampling process, but the principle is the same.</p>
 <p>So, this is the basic idea of bootstrapping. We sample with replacement from our original sample, many many times. We did 3 here manually, but we generally use a program to do this many more times, such as a thousand or more.</p>
@@ -256,8 +256,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original     bias    std. error
-## t1* 17.73365 0.08526573    2.603624</code></pre>
+##     original      bias    std. error
+## t1* 13.00795 -0.03844821    2.855539</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -267,7 +267,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (12.55, 22.75 )  
+## 95%   ( 7.45, 18.64 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>Now let’s do it for the other two subsamples of n=50, and n=200</p>
 <pre><code>## 
@@ -279,8 +279,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original      bias    std. error
-## t1* 15.24468 -0.01907543    1.156241</code></pre>
+##     original     bias    std. error
+## t1* 16.19309 0.03585878   0.9770439</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -290,7 +290,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.00, 17.53 )  
+## 95%   (14.24, 18.07 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
@@ -301,8 +301,8 @@
 ## 
 ## 
 ## Bootstrap Statistics :
-##     original       bias    std. error
-## t1* 14.79855 -0.008074683   0.6024413</code></pre>
+##     original      bias    std. error
+## t1* 15.51989 -0.01226818   0.5922918</code></pre>
 <p><img src="DBA_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 ## Based on 1000 bootstrap replicates
@@ -312,7 +312,7 @@
 ## 
 ## Intervals : 
 ## Level      Normal        
-## 95%   (13.63, 15.99 )  
+## 95%   (14.37, 16.69 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>We’ll now build a table with these values <em>back in the slide deck. I</em>Again, remember the values in the slide deck will differ from these due to the randomness of the process.</p>
 <div id="bootstrapping-the-original-sample" class="section level3 hasAnchor" number="5.1.1">
